@@ -1,78 +1,189 @@
+import 'dotenv/config';
+
 import crypto from 'node:crypto';
 
 const API_BASE = 'https://api.tally.so';
+const TALLY_VERSION = process.env.TALLY_VERSION || ''; // optional version pin
 
+// ---- Field definition you want to author with
 type FieldType = 'SHORT_TEXT' | 'EMAIL';
 
 interface Field {
   type: FieldType;
   title: string;
-  properties?: {
-    required?: boolean;
-  };
+  properties?: { required?: boolean; placeholder?: string };
 }
 
-interface Block {
-  uuid: string;
-  type: string;
-  groupUuid: string;
-  groupType: string;
-  payload: {
-    title: string;
-    required?: boolean;
-  };
+// ---- Tally block model (typed, minimal subset we need)
+type UUID = string;
+
+type GroupType = 'FORM_TITLE' | 'QUESTION';
+
+interface BaseBlock<T extends string, P, G extends GroupType> {
+  uuid: UUID;
+  type: T;
+  groupUuid: UUID;
+  groupType: G;
+  payload: P;
 }
 
-async function request(path: string, options: RequestInit = {}): Promise<any> {
+type FormTitleBlock = BaseBlock<
+  'FORM_TITLE',
+  { html: string; button?: { label?: string } },
+  'FORM_TITLE'
+>;
+
+type TitleBlock = BaseBlock<'TITLE', { html: string }, 'QUESTION'>;
+
+type InputTextPayload = { isRequired?: boolean; placeholder?: string };
+type InputEmailPayload = { isRequired?: boolean; placeholder?: string };
+
+type InputTextBlock = BaseBlock<'INPUT_TEXT', InputTextPayload, 'QUESTION'>;
+type InputEmailBlock = BaseBlock<'INPUT_EMAIL', InputEmailPayload, 'QUESTION'>;
+
+type Block = FormTitleBlock | TitleBlock | InputTextBlock | InputEmailBlock;
+
+// ---- API response shapes we use
+interface FormsListResponse {
+  items: Array<{ id: string; name: string }>;
+}
+
+interface CreateFormRequest {
+  status: 'PUBLISHED' | 'BLANK' | 'DRAFT';
+  blocks: Block[];
+  // workspaceId?: string; // uncomment if you want to target a specific workspace
+}
+
+interface CreateFormResponse {
+  id: string;
+}
+
+// ---- fetch helper
+async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = process.env.TALLY_API;
-  if (!token) {
-    throw new Error('TALLY_API not set');
-  }
+  if (!token) throw new Error('TALLY_API not set');
 
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
+      ...(TALLY_VERSION ? { 'tally-version': TALLY_VERSION } : {}),
       ...(options.headers || {}),
     },
   });
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Tally API error ${res.status}: ${text}`);
+  const text = await res.text();
+  let body: unknown = null;
+  if (text) {
+    try {
+      body = JSON.parse(text);
+    } catch {
+      // leave as null; error below will include raw text if !ok
+    }
   }
 
-  return res.json();
+  if (!res.ok) {
+    const detail = text || res.statusText;
+    throw new Error(`Tally API error ${res.status}: ${detail}`);
+  }
+  return body as T;
 }
 
-function fieldToBlock(field: Field): Block {
-  const uuid = crypto.randomUUID();
-  const type = field.type;
-  return {
-    uuid,
-    type,
-    groupUuid: uuid,
-    groupType: type,
-    payload: {
-      title: field.title,
-      required: field.properties?.required ?? false,
-    },
+/**
+ * Build blocks for a simple form:
+ * - One FORM_TITLE block (the form name)
+ * - For each field, a TITLE block + INPUT_* block sharing groupUuid and groupType="QUESTION"
+ */
+function makeFormBlocks(formName: string, fields: Field[]): Block[] {
+  const blocks: Block[] = [];
+
+  // 1) Form title
+  const formTitleUuid = crypto.randomUUID();
+  const formTitle: FormTitleBlock = {
+    uuid: formTitleUuid,
+    type: 'FORM_TITLE',
+    groupUuid: formTitleUuid,
+    groupType: 'FORM_TITLE',
+    payload: { html: formName },
   };
+  blocks.push(formTitle);
+
+  // 2) Questions
+  for (const f of fields) {
+    const groupUuid = crypto.randomUUID();
+
+    const titleBlock: TitleBlock = {
+      uuid: crypto.randomUUID(),
+      type: 'TITLE',
+      groupUuid,
+      groupType: 'QUESTION',
+      payload: { html: f.title },
+    };
+    blocks.push(titleBlock);
+
+    const baseInputPayload = {
+      isRequired: Boolean(f.properties?.required),
+      ...(f.properties?.placeholder
+        ? { placeholder: f.properties.placeholder }
+        : {}),
+    };
+
+    if (f.type === 'SHORT_TEXT') {
+      const input: InputTextBlock = {
+        uuid: crypto.randomUUID(),
+        type: 'INPUT_TEXT',
+        groupUuid,
+        groupType: 'QUESTION',
+        payload: baseInputPayload,
+      };
+      blocks.push(input);
+    } else if (f.type === 'EMAIL') {
+      const input: InputEmailBlock = {
+        uuid: crypto.randomUUID(),
+        type: 'INPUT_EMAIL',
+        groupUuid,
+        groupType: 'QUESTION',
+        payload: baseInputPayload,
+      };
+      blocks.push(input);
+    } else {
+      // TypeScript exhaustiveness check
+      const _never: never = f.type;
+      throw new Error(`Unsupported field type: ${_never}`);
+    }
+  }
+
+  return blocks;
+}
+
+async function findFormIdByName(name: string): Promise<string | null> {
+  const list = await request<FormsListResponse>('/forms');
+  const match = list.items.find((f) => f.name === name);
+  return match?.id ?? null;
+}
+
+async function createForm(name: string, fields: Field[]): Promise<string> {
+  const blocks = makeFormBlocks(name, fields);
+
+  const body: CreateFormRequest = {
+    status: 'PUBLISHED', // or 'BLANK' / 'DRAFT'
+    blocks,
+    // workspaceId: process.env.TALLY_WORKSPACE_ID, // if you want to target a workspace
+  };
+
+  const created = await request<CreateFormResponse>('/forms', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return created.id;
 }
 
 async function ensureForm(name: string, fields: Field[]): Promise<string> {
-  const list = await request('/forms');
-  const existing = list?.data?.find((f: any) => f.name === name);
-  if (existing) return existing.id;
-
-  const blocks = fields.map(fieldToBlock);
-  const created = await request('/forms', {
-    method: 'POST',
-    body: JSON.stringify({ name, status: 'PUBLISHED', blocks }),
-  });
-
-  return created?.data?.id || created?.id || '';
+  const existing = await findFormIdByName(name);
+  if (existing) return existing;
+  return createForm(name, fields);
 }
 
 async function main() {
@@ -80,13 +191,13 @@ async function main() {
     const membershipId = await ensureForm('Membership Application', [
       {
         type: 'SHORT_TEXT',
-        title: 'Full Name',
-        properties: { required: true },
+        title: 'Full name',
+        properties: { required: true, placeholder: 'Your name' },
       },
       {
         type: 'EMAIL',
         title: 'Email',
-        properties: { required: true },
+        properties: { required: true, placeholder: 'name@example.com' },
       },
     ]);
     console.log('Membership form ID:', membershipId);
@@ -94,18 +205,14 @@ async function main() {
     const eventId = await ensureForm('Thomastag 2025 Signup', [
       {
         type: 'SHORT_TEXT',
-        title: 'Full Name',
+        title: 'Full name',
         properties: { required: true },
       },
-      {
-        type: 'EMAIL',
-        title: 'Email',
-        properties: { required: true },
-      },
+      { type: 'EMAIL', title: 'Email', properties: { required: true } },
     ]);
     console.log('Thomastag 2025 signup form ID:', eventId);
-  } catch (err: any) {
-    console.error(err.message);
+  } catch (err) {
+    console.error(err instanceof Error ? err.message : String(err));
     process.exit(1);
   }
 }
