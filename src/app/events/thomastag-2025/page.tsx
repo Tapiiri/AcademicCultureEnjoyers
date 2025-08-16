@@ -177,12 +177,9 @@ async function SignupSection() {
       {formId ? (
         <TallyForm formId={formId} height={600} />
       ) : (
-        <a
-          href="https://example.com/signup"
-          className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-500"
-        >
-          Sign up here
-        </a>
+        <p className="text-gray-700 dark:text-gray-300">
+          Signup form unavailable. Please try again later.
+        </p>
       )}
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         Seats are limited to 30 — first come, first served.
