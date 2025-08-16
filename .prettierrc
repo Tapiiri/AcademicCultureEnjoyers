@@ -4,6 +4,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "plugins": [
+    "prettier-plugin-packagejson",
     "prettier-plugin-organize-imports",
     "prettier-plugin-tailwindcss"
   ],

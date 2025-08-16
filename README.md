@@ -11,6 +11,18 @@ npm install
 npm run dev
 ```
 
+### Tally Forms
+
+The site can automatically ensure required Tally forms exist. Provide a
+`TALLY_API` token in your environment and run:
+
+```bash
+npm run create-forms
+```
+
+This will create the membership application and Thomastag 2025 signup forms
+if they do not already exist and print their IDs.
+
 ## Scripts
 
 - `npm run dev` – start development server

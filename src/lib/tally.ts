@@ -22,7 +22,7 @@ async function request<T>(
     return null;
   }
 
-  return (res.json() as Promise<T>);
+  return res.json() as Promise<T>;
 }
 
 interface TallyFormSummary {
@@ -41,7 +41,9 @@ interface TallyCreateResponse {
 
 export async function createMembershipForm() {
   const list = await request<TallyFormsResponse>('/forms');
-  const existing = list?.data?.find((f) => f.title === 'Membership Application');
+  const existing = list?.data?.find(
+    (f) => f.title === 'Membership Application',
+  );
   if (existing) return existing.id;
 
   const created = await request<TallyCreateResponse>('/forms', {
