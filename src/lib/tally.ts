@@ -6,8 +6,7 @@ async function request<T>(
 ): Promise<T | null> {
   const token = process.env.TALLY_API;
   if (!token) return null;
-
-  const res = await fetch(`${API_BASE}v1${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
