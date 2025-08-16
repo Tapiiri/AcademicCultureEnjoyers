@@ -6,7 +6,7 @@ async function request(path, options = {}) {
     throw new Error('TALLY_API not set');
   }
 
-  const res = await fetch(`${API_BASE}v1${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -30,7 +30,7 @@ async function ensureForm(title, fields) {
 
   const created = await request('/forms', {
     method: 'POST',
-    body: JSON.stringify({ title, fields, status: 'published' }),
+    body: JSON.stringify({ title, fields, status: 'PUBLISHED', blocks: [] }),
   });
 
   return created?.data?.id || created?.id || '';
