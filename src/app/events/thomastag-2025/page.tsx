@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import TallyForm from '@/components/TallyForm';
 import { createEventSignupForm } from '@/lib/tally';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Thomastag 2025 – Southern German Traditions Weekend',
