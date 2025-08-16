@@ -20,7 +20,6 @@ export const metadata: Metadata = {
       'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
     url: 'https://academiccultureenjoyers.org/events/thomastag-2025',
     siteName: 'Academic Culture Enjoyers',
-    type: 'event',
   },
 };
 
