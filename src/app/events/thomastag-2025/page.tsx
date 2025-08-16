@@ -1,9 +1,27 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Thomastag 2025 – Southern German Traditions Weekend',
   description:
     'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
+  keywords: [
+    'Thomastag',
+    'Nürnberg',
+    'student traditions',
+    'academic culture',
+    'kommers',
+    'event',
+  ],
+  alternates: { canonical: '/events/thomastag-2025' },
+  openGraph: {
+    title: 'Thomastag 2025 – Southern German Traditions Weekend',
+    description:
+      'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
+    url: 'https://academiccultureenjoyers.org/events/thomastag-2025',
+    siteName: 'Academic Culture Enjoyers',
+    type: 'event',
+  },
 };
 
 export default function Thomastag2025Page() {
@@ -155,6 +173,14 @@ export default function Thomastag2025Page() {
         </a>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
           Seats are limited to 30 — first come, first served.
+        </p>
+        <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+          We only use your info for organizing events, share it only when
+          necessary (e.g. hostel bookings), and delete it after.{' '}
+          <Link href="/privacy" className="underline">
+            Full privacy notice
+          </Link>
+          .
         </p>
       </section>
     </main>
