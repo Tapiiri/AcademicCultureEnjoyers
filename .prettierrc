@@ -1,0 +1,13 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "tailwindAttributes": ["className"],
+  "tailwindFunctions": ["cn", "twMerge", "clsx"],
+  "tailwindPreserveWhitespace": false
+}
