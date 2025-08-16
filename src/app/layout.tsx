@@ -1,24 +1,52 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+const description =
+  'Community of students and alumni celebrating academic traditions across Europe.';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://academiccultureenjoyers.org'),
   title: {
     default: 'Academic Culture Enjoyers',
     template: '%s | Academic Culture Enjoyers',
   },
-  description:
-    'A hub for people who enjoy academic culture: study tips, research resources, and community stories.',
+  description,
+  keywords: [
+    'academic culture',
+    'student traditions',
+    'sitsit',
+    'kommers',
+    'fraternities',
+    'events',
+  ],
+  openGraph: {
+    title: 'Academic Culture Enjoyers',
+    description,
+    url: 'https://academiccultureenjoyers.org',
+    siteName: 'Academic Culture Enjoyers',
+    images: [
+      {
+        url: '/globe.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Academic Culture Enjoyers globe logo',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Academic Culture Enjoyers',
+    description,
+    images: ['/globe.svg'],
+  },
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   keywords: [
     'academic culture',
     'scholarly community',
@@ -34,11 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
