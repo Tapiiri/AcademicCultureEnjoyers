@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     'kommers',
     'fraternities',
     'events',
+    'scholarly community',
+    'research tools',
+    'study tips',
   ],
   openGraph: {
     title: 'Academic Culture Enjoyers',
@@ -47,12 +50,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  keywords: [
-    'academic culture',
-    'scholarly community',
-    'research tools',
-    'study tips',
-  ],
 };
 
 export default function RootLayout({
@@ -62,7 +59,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="flex min-h-screen flex-col bg-gradient-to-b from-white to-blue-50 antialiased dark:from-gray-900 dark:to-gray-950">
+        <main className="flex-1">{children}</main>
+        <footer className="border-t bg-white/60 p-4 text-center text-sm text-gray-600 backdrop-blur dark:bg-gray-900/60 dark:text-gray-400">
+          <a href="/privacy" className="hover:underline">
+            Privacy Policy
+          </a>
+        </footer>
+      </body>
     </html>
   );
 }
