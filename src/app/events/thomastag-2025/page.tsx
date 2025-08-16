@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TallyForm from '@/components/TallyForm';
+import { createEventSignupForm } from '@/lib/tally';
 
 export const metadata: Metadata = {
   title: 'Thomastag 2025 – Southern German Traditions Weekend',
@@ -162,26 +164,37 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-      <section className="text-center">
-        <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
+      <SignupSection />
+    </main>
+  );
+}
+
+async function SignupSection() {
+  const formId = await createEventSignupForm('Thomastag 2025');
+  return (
+    <section className="text-center">
+      <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
+      {formId ? (
+        <TallyForm formId={formId} height={600} />
+      ) : (
         <a
           href="https://example.com/signup"
           className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-500"
         >
           Sign up here
         </a>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          Seats are limited to 30 — first come, first served.
-        </p>
-        <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-          We only use your info for organizing events, share it only when
-          necessary (e.g. hostel bookings), and delete it after.{' '}
-          <Link href="/privacy" className="underline">
-            Full privacy notice
-          </Link>
-          .
-        </p>
-      </section>
-    </main>
+      )}
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        Seats are limited to 30 — first come, first served.
+      </p>
+      <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+        We only use your info for organizing events, share it only when
+        necessary (e.g. hostel bookings), and delete it after.{' '}
+        <Link href="/privacy" className="underline">
+          Full privacy notice
+        </Link>
+        .
+      </p>
+    </section>
   );
 }
