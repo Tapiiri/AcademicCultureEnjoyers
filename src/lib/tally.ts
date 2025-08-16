@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.tally.so/';
+const API_BASE = 'https://api.tally.so';
 
 async function request<T>(
   path: string,
@@ -26,73 +26,23 @@ async function request<T>(
 
 interface TallyFormSummary {
   id: string;
-  title: string;
+  name: string;
 }
 
 interface TallyFormsResponse {
-  data?: TallyFormSummary[];
+  items?: TallyFormSummary[];
 }
 
-interface TallyCreateResponse {
-  id?: string;
-  data?: { id: string };
-}
-
-export async function createMembershipForm() {
+async function findFormIdByName(name: string) {
   const list = await request<TallyFormsResponse>('/forms');
-  const existing = list?.data?.find(
-    (f) => f.title === 'Membership Application',
-  );
-  if (existing) return existing.id;
-
-  const created = await request<TallyCreateResponse>('/forms', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: 'Membership Application',
-      fields: [
-        {
-          type: 'short_text',
-          title: 'Full Name',
-          properties: { required: true },
-        },
-        {
-          type: 'email',
-          title: 'Email',
-          properties: { required: true },
-        },
-      ],
-      status: 'published',
-    }),
-  });
-
-  return created?.data?.id || created?.id || '';
+  const existing = list?.items?.find((f) => f.name === name);
+  return existing?.id || '';
 }
 
-export async function createEventSignupForm(event: string) {
-  const title = `${event} Signup`;
-  const list = await request<TallyFormsResponse>('/forms');
-  const existing = list?.data?.find((f) => f.title === title);
-  if (existing) return existing.id;
+export async function getMembershipForm() {
+  return findFormIdByName('Membership Application');
+}
 
-  const created = await request<TallyCreateResponse>('/forms', {
-    method: 'POST',
-    body: JSON.stringify({
-      title,
-      fields: [
-        {
-          type: 'short_text',
-          title: 'Full Name',
-          properties: { required: true },
-        },
-        {
-          type: 'email',
-          title: 'Email',
-          properties: { required: true },
-        },
-      ],
-      status: 'published',
-    }),
-  });
-
-  return created?.data?.id || created?.id || '';
+export async function getEventSignupForm(event: string) {
+  return findFormIdByName(`${event} Signup`);
 }
