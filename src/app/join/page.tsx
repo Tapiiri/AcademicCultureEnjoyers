@@ -1,5 +1,5 @@
 import TallyForm from '@/components/TallyForm';
-import { createMembershipForm } from '@/lib/tally';
+import { getMembershipForm } from '@/lib/tally';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function JoinPage() {
-  const formId = await createMembershipForm();
+  const formId = await getMembershipForm();
 
   return (
     <main className="mx-auto max-w-3xl p-8">

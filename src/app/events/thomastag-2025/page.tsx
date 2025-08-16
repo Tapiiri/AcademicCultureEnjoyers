@@ -1,5 +1,5 @@
 import TallyForm from '@/components/TallyForm';
-import { createEventSignupForm } from '@/lib/tally';
+import { getEventSignupForm } from '@/lib/tally';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -170,7 +170,7 @@ export default function Thomastag2025Page() {
 }
 
 async function SignupSection() {
-  const formId = await createEventSignupForm('Thomastag 2025');
+  const formId = await getEventSignupForm('Thomastag 2025');
   return (
     <section className="text-center">
       <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
