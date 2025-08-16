@@ -60,6 +60,9 @@ export default function Home() {
             Connect with fellow enjoyers and share your passion for knowledge
             and tradition.
           </p>
+          <Link href="/join" className="text-blue-600 hover:underline">
+            Apply for membership
+          </Link>
         </section>
         <section className="mt-10">
           <h2 className="mb-2 text-2xl font-semibold">Upcoming Event</h2>
