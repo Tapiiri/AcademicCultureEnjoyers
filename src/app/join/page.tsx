@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
 import TallyForm from '@/components/TallyForm';
 import { createMembershipForm } from '@/lib/tally';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Join',
@@ -13,7 +13,9 @@ export default async function JoinPage() {
 
   return (
     <main className="mx-auto max-w-3xl p-8">
-      <h1 className="mb-4 text-3xl font-bold">Join Academic Culture Enjoyers</h1>
+      <h1 className="mb-4 text-3xl font-bold">
+        Join Academic Culture Enjoyers
+      </h1>
       <p className="mb-6 text-gray-700 dark:text-gray-300">
         Fill out the form below to apply for membership.
       </p>
