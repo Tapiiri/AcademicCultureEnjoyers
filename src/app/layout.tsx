@@ -47,6 +47,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  keywords: [
+    'academic culture',
+    'scholarly community',
+    'research tools',
+    'study tips',
+  ],
 };
 
 export default function RootLayout({
