@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.tally.so/v1';
+const API_BASE = 'https://api.tally.so/';
 
 async function request<T>(
   path: string,
@@ -7,7 +7,7 @@ async function request<T>(
   const token = process.env.TALLY_API;
   if (!token) return null;
 
-  const res = await fetch(`${API_BASE}${path}`, {
+  const res = await fetch(`${API_BASE}v1${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -62,6 +62,7 @@ export async function createMembershipForm() {
           properties: { required: true },
         },
       ],
+      status: 'published',
     }),
   });
 
@@ -90,6 +91,7 @@ export async function createEventSignupForm(event: string) {
           properties: { required: true },
         },
       ],
+      status: 'published',
     }),
   });
 

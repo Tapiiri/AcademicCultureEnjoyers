@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.tally.so/v1';
+const API_BASE = 'https://api.tally.so/';
 
 async function request(path, options = {}) {
   const token = process.env.TALLY_API;
@@ -6,7 +6,7 @@ async function request(path, options = {}) {
     throw new Error('TALLY_API not set');
   }
 
-  const res = await fetch(`${API_BASE}${path}`, {
+  const res = await fetch(`${API_BASE}v1${path}`, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -30,7 +30,7 @@ async function ensureForm(title, fields) {
 
   const created = await request('/forms', {
     method: 'POST',
-    body: JSON.stringify({ title, fields }),
+    body: JSON.stringify({ title, fields, status: 'published' }),
   });
 
   return created?.data?.id || created?.id || '';
