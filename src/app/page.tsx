@@ -83,18 +83,29 @@ async function ThomastagHero() {
       <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
         19–21 December 2025 · Nürnberg, Germany
       </p>
-      {formId ? (
+      <div className="flex justify-center gap-4">
         <Link
-          href={`https://tally.so/r/${formId}`}
-          className="inline-block rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+          href="/events/thomastag-2025"
+          className="inline-block rounded bg-gray-200 px-4 py-2 font-semibold text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
         >
-          Sign up now
+          Event details
         </Link>
-      ) : (
-        <p className="text-gray-700 dark:text-gray-300">
-          Sign-ups open 1 September 2025
-        </p>
-      )}
+        {formId ? (
+          <Link
+            href={`https://tally.so/r/${formId}`}
+            className="inline-block rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+          >
+            Sign up now
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="inline-block cursor-not-allowed rounded bg-gray-400 px-4 py-2 font-semibold text-white"
+          >
+            Sign-up opens 22 August 2025
+          </button>
+        )}
+      </div>
     </section>
   );
 }
