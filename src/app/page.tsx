@@ -51,7 +51,11 @@ export default function Home() {
           <h2 className="mb-2 text-2xl font-semibold">Events & Trips</h2>
           <p className="text-gray-700 dark:text-gray-300">
             Join visits to student fraternities, sitsits, and other academic
-            festivities around the world.
+            festivities around the world.{' '}
+            <Link href="/events" className="text-blue-600 hover:underline">
+              See upcoming events
+            </Link>
+            .
           </p>
         </section>
         <section>

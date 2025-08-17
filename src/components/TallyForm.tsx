@@ -28,6 +28,8 @@ export default function TallyForm({
       marginHeight={0}
       marginWidth={0}
       title="Tally form"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
     />
   );
 }
