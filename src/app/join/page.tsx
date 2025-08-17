@@ -1,6 +1,7 @@
 import TallyForm from '@/components/TallyForm';
 import { getMembershipForm } from '@/lib/tally';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Join',
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default async function JoinPage() {
+  if (process.env.NEXT_PUBLIC_HIDE_MEMBERSHIP === 'true') {
+    notFound();
+  }
+
   const formId = await getMembershipForm();
 
   return (
