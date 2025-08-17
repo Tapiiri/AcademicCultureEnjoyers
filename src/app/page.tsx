@@ -34,6 +34,7 @@ export default function Home() {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
       />
+      <ThomastagHero />
       <main className="mx-auto max-w-4xl p-8">
         <Image
           src="/globe.svg"
@@ -48,7 +49,6 @@ export default function Home() {
           Celebrating academic traditions and student culture across Europe.
           Discover events, stories and resources for enjoyers of scholarly life.
         </p>
-        <ThomastagHero />
         <section className="mb-10">
           <h2 className="mb-2 text-2xl font-semibold">Events & Trips</h2>
           <p className="text-gray-700 dark:text-gray-300">
@@ -78,33 +78,33 @@ export default function Home() {
 async function ThomastagHero() {
   const formId = await getEventSignupForm('Thomastag 2025');
   return (
-    <section className="mb-10 rounded bg-gray-100 p-8 text-center dark:bg-gray-800">
-      <h2 className="mb-2 text-3xl font-bold">Thomastag 2025</h2>
-      <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
-        19–21 December 2025 · Nürnberg, Germany
-      </p>
-      <div className="flex justify-center gap-4">
-        <Link
-          href="/events/thomastag-2025"
-          className="inline-block rounded bg-gray-200 px-4 py-2 font-semibold text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
-        >
-          Event details
-        </Link>
-        {formId ? (
+    <section className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 py-20 text-center text-white">
+      <div className="mx-auto max-w-4xl px-8">
+        <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
+        <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href={`https://tally.so/r/${formId}`}
-            className="inline-block rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+            href="/events/thomastag-2025"
+            className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
           >
-            Sign up now
+            Event details
           </Link>
-        ) : (
-          <button
-            disabled
-            className="inline-block cursor-not-allowed rounded bg-gray-400 px-4 py-2 font-semibold text-white"
-          >
-            Sign-up opens 22 August 2025
-          </button>
-        )}
+          {formId ? (
+            <Link
+              href={`https://tally.so/r/${formId}`}
+              className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+            >
+              Sign up now
+            </Link>
+          ) : (
+            <button
+              disabled
+              className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
+            >
+              Sign-up opens 22 August 2025
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );
