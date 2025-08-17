@@ -1,3 +1,4 @@
+import { getEventSignupForm } from '@/lib/tally';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,6 +34,7 @@ export default function Home() {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
       />
+      <ThomastagHero />
       <main className="mx-auto max-w-4xl p-8">
         <Image
           src="/globe.svg"
@@ -68,19 +70,42 @@ export default function Home() {
             Apply for membership
           </Link>
         </section>
-        <section className="mt-10">
-          <h2 className="mb-2 text-2xl font-semibold">Upcoming Event</h2>
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            Join us in Nürnberg for Thomastag, 19–21 December 2025.
-          </p>
-          <Link
-            href="/events/thomastag-2025"
-            className="text-blue-600 hover:underline"
-          >
-            Learn more and sign up
-          </Link>
-        </section>
       </main>
     </>
+  );
+}
+
+async function ThomastagHero() {
+  const formId = await getEventSignupForm('Thomastag 2025');
+  return (
+    <section className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 py-20 text-center text-white">
+      <div className="mx-auto max-w-4xl px-8">
+        <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
+        <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link
+            href="/events/thomastag-2025"
+            className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
+          >
+            Event details
+          </Link>
+          {formId ? (
+            <Link
+              href={`https://tally.so/r/${formId}`}
+              className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+            >
+              Sign up now
+            </Link>
+          ) : (
+            <button
+              disabled
+              className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
+            >
+              Sign-up opens 22 August 2025
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
