@@ -1,5 +1,9 @@
 import TallyForm from '@/components/TallyForm';
 import { getEventSignupForm } from '@/lib/tally';
+import {
+  THOMASTAG_SIGNUP_OPENS_TEXT,
+  isThomastagSignupOpen,
+} from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -171,14 +175,21 @@ export default function Thomastag2025Page() {
 
 async function SignupSection() {
   const formId = await getEventSignupForm('Thomastag 2025');
+  const signupOpen = isThomastagSignupOpen();
   return (
     <section className="text-center">
       <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
-      {formId ? (
-        <TallyForm formId={formId} height={600} />
+      {signupOpen ? (
+        formId ? (
+          <TallyForm formId={formId} height={600} />
+        ) : (
+          <p className="text-gray-700 dark:text-gray-300">
+            Signup form unavailable. Please try again later.
+          </p>
+        )
       ) : (
         <p className="text-gray-700 dark:text-gray-300">
-          Signup form unavailable. Please try again later.
+          {`Sign-up opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
         </p>
       )}
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
