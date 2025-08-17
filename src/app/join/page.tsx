@@ -17,7 +17,7 @@ export default async function JoinPage() {
         Join Academic Culture Enjoyers
       </h1>
       <p className="mb-6 text-gray-700 dark:text-gray-300">
-        Fill out the form below to apply for membership.
+        Want to hear of more opportunities to discover student culture? Interested in organizing the events? Fill out the form below to apply for membership in the association.
       </p>
       {formId ? (
         <TallyForm formId={formId} />
