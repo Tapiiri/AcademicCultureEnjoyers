@@ -2,6 +2,10 @@
 
 Community site for sharing stories, resources and event info about academic traditions and student culture across Europe. Built with [Next.js](https://nextjs.org) and Tailwind CSS.
 
+### Favicon
+
+The site includes a playful beer mug favicon wearing a jaunty hat. Replace `src/app/favicon.svg` with your own icon to customize it.
+
 ## Development
 
 Install dependencies and start the development server:
