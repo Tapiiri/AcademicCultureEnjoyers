@@ -1,3 +1,4 @@
+import { getEventSignupForm } from '@/lib/tally';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,6 +48,7 @@ export default function Home() {
           Celebrating academic traditions and student culture across Europe.
           Discover events, stories and resources for enjoyers of scholarly life.
         </p>
+        <ThomastagHero />
         <section className="mb-10">
           <h2 className="mb-2 text-2xl font-semibold">Events & Trips</h2>
           <p className="text-gray-700 dark:text-gray-300">
@@ -68,19 +70,31 @@ export default function Home() {
             Apply for membership
           </Link>
         </section>
-        <section className="mt-10">
-          <h2 className="mb-2 text-2xl font-semibold">Upcoming Event</h2>
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            Join us in Nürnberg for Thomastag, 19–21 December 2025.
-          </p>
-          <Link
-            href="/events/thomastag-2025"
-            className="text-blue-600 hover:underline"
-          >
-            Learn more and sign up
-          </Link>
-        </section>
       </main>
     </>
+  );
+}
+
+async function ThomastagHero() {
+  const formId = await getEventSignupForm('Thomastag 2025');
+  return (
+    <section className="mb-10 rounded bg-gray-100 p-8 text-center dark:bg-gray-800">
+      <h2 className="mb-2 text-3xl font-bold">Thomastag 2025</h2>
+      <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
+        19–21 December 2025 · Nürnberg, Germany
+      </p>
+      {formId ? (
+        <Link
+          href={`https://tally.so/r/${formId}`}
+          className="inline-block rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+        >
+          Sign up now
+        </Link>
+      ) : (
+        <p className="text-gray-700 dark:text-gray-300">
+          Sign-ups open 1 September 2025
+        </p>
+      )}
+    </section>
   );
 }
