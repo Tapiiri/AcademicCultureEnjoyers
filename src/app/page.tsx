@@ -47,12 +47,11 @@ export default function Home() {
         <h1 className="mb-6 text-4xl font-bold">Academic Culture Enjoyers</h1>
         <p className="mb-8 text-lg text-gray-700 dark:text-gray-300">
           Celebrating academic traditions and student culture across Europe.
-          Discover events, stories and resources for enjoyers of scholarly life.
         </p>
         <section className="mb-10">
           <h2 className="mb-2 text-2xl font-semibold">Events & Trips</h2>
           <p className="text-gray-700 dark:text-gray-300">
-            Join visits to student fraternities, sitsits, and other academic
+            Join visits to student fraternities, sitsit, and other academic
             festivities around the world.{' '}
             <Link href="/events" className="text-blue-600 hover:underline">
               See upcoming events
@@ -63,8 +62,8 @@ export default function Home() {
         <section>
           <h2 className="mb-2 text-2xl font-semibold">Community</h2>
           <p className="text-gray-700 dark:text-gray-300">
-            Connect with fellow enjoyers and share your passion for knowledge
-            and tradition.
+            Connect with fellow enjoyers and share your passion for academic
+            culture and tradition.
           </p>
           <Link href="/join" className="text-blue-600 hover:underline">
             Apply for membership
