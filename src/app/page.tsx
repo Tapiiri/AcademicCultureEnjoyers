@@ -1,4 +1,8 @@
 import { getEventSignupForm } from '@/lib/tally';
+import {
+  THOMASTAG_SIGNUP_OPENS_TEXT,
+  isThomastagSignupOpen,
+} from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -76,6 +80,7 @@ export default function Home() {
 
 async function ThomastagHero() {
   const formId = await getEventSignupForm('Thomastag 2025');
+  const signupOpen = isThomastagSignupOpen();
   return (
     <section className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 py-20 text-center text-white">
       <div className="mx-auto max-w-4xl px-8">
@@ -88,19 +93,28 @@ async function ThomastagHero() {
           >
             Event details
           </Link>
-          {formId ? (
-            <Link
-              href={`https://tally.so/r/${formId}`}
-              className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-            >
-              Sign up now
-            </Link>
+          {signupOpen ? (
+            formId ? (
+              <Link
+                href={`https://tally.so/r/${formId}`}
+                className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+              >
+                Sign up now
+              </Link>
+            ) : (
+              <button
+                disabled
+                className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
+              >
+                Signup form unavailable. Please try again later.
+              </button>
+            )
           ) : (
             <button
               disabled
               className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
             >
-              Sign-up opens 22 August 2025
+              {`Sign-up opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
             </button>
           )}
         </div>
