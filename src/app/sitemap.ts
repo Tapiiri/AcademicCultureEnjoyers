@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/events',
     '/events/thomastag-2025',
-    '/join',
+    ...(process.env.NEXT_PUBLIC_HIDE_MEMBERSHIP === 'true' ? [] : ['/join']),
     '/privacy',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

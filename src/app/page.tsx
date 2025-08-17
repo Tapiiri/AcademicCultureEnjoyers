@@ -30,6 +30,7 @@ const organizationLd = {
 };
 
 export default function Home() {
+  const hideMembership = process.env.NEXT_PUBLIC_HIDE_MEMBERSHIP === 'true';
   return (
     <>
       <Script
@@ -63,16 +64,18 @@ export default function Home() {
             .
           </p>
         </section>
-        <section>
-          <h2 className="mb-2 text-2xl font-semibold">Community</h2>
-          <p className="text-gray-700 dark:text-gray-300">
-            Connect with fellow enjoyers and share your passion for academic
-            culture and tradition.
-          </p>
-          <Link href="/join" className="text-blue-600 hover:underline">
-            Apply for membership
-          </Link>
-        </section>
+        {!hideMembership && (
+          <section>
+            <h2 className="mb-2 text-2xl font-semibold">Community</h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              Connect with fellow enjoyers and share your passion for academic
+              culture and tradition.
+            </p>
+            <Link href="/join" className="text-blue-600 hover:underline">
+              Apply for membership
+            </Link>
+          </section>
+        )}
       </main>
     </>
   );

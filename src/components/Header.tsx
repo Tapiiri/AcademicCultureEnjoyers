@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+const hideMembership = process.env.NEXT_PUBLIC_HIDE_MEMBERSHIP === 'true';
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/events/thomastag-2025', label: 'Events' },
-  { href: '/join', label: 'Join' },
+  ...(hideMembership ? [] : [{ href: '/join', label: 'Join' }]),
 ];
 
 export default function Header() {
