@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -60,7 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col bg-gradient-to-b from-white to-blue-50 antialiased dark:from-gray-900 dark:to-gray-950">
-        <main className="flex-1">{children}</main>
+        <Header />
+        <main id="content" className="flex-1">
+          {children}
+        </main>
         <footer className="border-t bg-white/60 p-4 text-center text-sm text-gray-600 backdrop-blur dark:bg-gray-900/60 dark:text-gray-400">
           <a href="/privacy" className="hover:underline">
             Privacy Policy
