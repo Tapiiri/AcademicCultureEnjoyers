@@ -1,8 +1,8 @@
 import { getEventSignupForm } from '@/lib/tally';
-import {
-  THOMASTAG_SIGNUP_OPENS_TEXT,
-  isThomastagSignupOpen,
-} from '@/lib/thomastag';
+import { isSignupOpen } from '@/lib/events';
+import fs from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -82,13 +82,26 @@ export default function Home() {
 }
 
 async function ThomastagHero() {
-  const formId = await getEventSignupForm('Thomastag 2025');
-  const signupOpen = isThomastagSignupOpen();
+  const filePath = path.join(process.cwd(), 'content/events/thomastag-2025.md');
+  const source = await fs.readFile(filePath, 'utf8');
+  const { data } = matter(source);
+  interface EventData {
+    title: string;
+    date: string;
+    location: string;
+    hero?: { headline?: string };
+    signupOpens?: string;
+  }
+  const event = data as EventData;
+  const formId = await getEventSignupForm(event.title);
+  const signupOpen = isSignupOpen(event.signupOpens ?? '');
   return (
     <section className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 py-20 text-center text-white">
       <div className="mx-auto max-w-4xl px-8">
-        <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
-        <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
+        <h2 className="mb-4 text-5xl font-extrabold">{event.hero?.headline || event.title}</h2>
+        <p className="mb-6 text-xl">
+          {new Date(event.date).toLocaleDateString()} · {event.location}
+        </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/events/thomastag-2025"
@@ -117,7 +130,7 @@ async function ThomastagHero() {
               disabled
               className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
             >
-              {`Sign-up opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+              {`Sign-up opens ${new Date(event.signupOpens ?? '').toLocaleString()}`}
             </button>
           )}
         </div>

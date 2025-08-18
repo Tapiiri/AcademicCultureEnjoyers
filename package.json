@@ -11,10 +11,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tinacms/cli": "^1.10.2",
     "dotenv": "^17.2.1",
+    "gray-matter": "^4.0.3",
     "next": "15.4.6",
     "react": "19.1.1",
-    "react-dom": "19.1.1"
+    "react-dom": "19.1.1",
+    "react-markdown": "^10.1.0",
+    "tinacms": "^2.8.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
