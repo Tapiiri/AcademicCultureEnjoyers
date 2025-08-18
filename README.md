@@ -27,6 +27,10 @@ npm run create-forms
 This will create the membership application and Thomastag 2025 signup forms
 if they do not already exist and print their IDs.
 
+### Staging password
+
+Set `STAGE_PASSWORD` in the environment to password-protect a staging deployment. Requests will require this password via HTTP basic auth only when the variable is present, so production builds without it remain public.
+
 ## Scripts
 
 - `npm run dev` – start development server
