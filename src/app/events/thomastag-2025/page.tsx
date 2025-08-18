@@ -1,6 +1,7 @@
 import TallyForm from '@/components/TallyForm';
 import { getEventSignupForm } from '@/lib/tally';
 import {
+  THOMASTAG_SIGNUP_CLOSES_TEXT,
   THOMASTAG_SIGNUP_OPENS_TEXT,
   isThomastagSignupOpen,
 } from '@/lib/thomastag';
@@ -42,16 +43,47 @@ export default function Thomastag2025Page() {
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">What is Thomastag?</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          Thomastag is a spectacular chance to experience German student culture
-          at its most festive. We’ll travel together to Nürnberg — a city famous
-          for its medieval charm, world-class Christmas market, and Southern
-          German fraternity traditions.
+          Thomastag is the German holiday that marks the shortest day of the
+          year—but in Nürnberg, it’s especially known as a day of longstanding
+          student tradition.
         </p>
         <p className="mt-4 text-gray-700 dark:text-gray-300">
-          The highlight of the weekend is a Kommers (a festive, sitsit-style
-          evening of song, toasts, and tradition) followed by a Bummel (visiting
-          local fraternities). Around that, we’ll explore Nürnberg, enjoy its
-          Christmas market, and share the season in good company.
+          The organizers of the event,{' '}
+          <em>Traditional Association of Student Customs Nuremberg</em>{' '}
+          (Traditionsverein Studentisches Brauchtum Nürnberg e.V., or TSBN),
+          describe the history of the event as follows:
+        </p>
+        <blockquote className="mt-4 border-l-4 border-blue-500 pl-4 text-gray-700 italic dark:text-gray-300">
+          <p>
+            The St. Thomas Stroll is an old Nuremberg tradition that dates back
+            to the 17th century. Students from the University of Erlangen (now
+            Friedrich-Alexander University), founded in 1742, would travel to
+            the city on the last weekend before Christmas, either because they
+            were living there or because they were traveling home from there by
+            carriage. December 21st was not only dedicated to St. Thomas, but
+            was also one of Nuremberg’s four market days. This custom gave rise
+            to the Christkindlesmarkt in the 17th century.
+          </p>
+          <p className="mt-2">
+            The students enjoyed this weekend celebrating together one last time
+            and shopping before their journey home. They visited numerous Thomas
+            pubs and later strolled together through Nuremberg’s city center and
+            the Christmas market.
+          </p>
+        </blockquote>
+        <p className="mt-4 text-gray-700 dark:text-gray-300">
+          To this day, Thomastag is celebrated among the student fraternities of
+          Nürnberg, and this year, the Academic Culture Enjoyers are proud to
+          have been invited by TSBN to participate in this particularly
+          traditional event of student culture!
+        </p>
+        <p className="mt-4 text-gray-700 dark:text-gray-300">
+          {`Below, you will find detailed information about the event. Sign-up starts ${THOMASTAG_SIGNUP_OPENS_TEXT} — sign up by ${THOMASTAG_SIGNUP_CLOSES_TEXT} to join us for the first big trip by Academic Culture Enjoyers!`}
+        </p>
+        <p className="mt-2 text-sm text-gray-600 italic dark:text-gray-400">
+          NOTE: You’ll need to book your own flights — while the event
+          participation, program and accommodation are being organised by ACE,
+          flights and some meals are not included.
         </p>
       </section>
 
@@ -59,23 +91,20 @@ export default function Thomastag2025Page() {
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
+          <li>Arrival in Nuremberg (Recommended)</li>
           <li>
-            Arrivals in Nürnberg (or Munich/Frankfurt with train transfer)
-          </li>
-          <li>Welcome evening: group dinner & beers (restaurant booking)</li>
-          <li>
-            Optional: museums & attractions (beer caves, bratwurst museum, train
-            museum…)
+            Welcome evening: group dinner & beers (restaurant booking by ACE)
           </li>
         </ul>
         <h3 className="mb-1 font-semibold">Saturday 20 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
+          <li>Arrival in Nuremberg (Latest)</li>
           <li>
-            Guided tour of Nürnberg with local experts (history, culture, hidden
-            gems)
+            Guided tour of Nürnberg with a local expert (history, culture,
+            hidden gems)
           </li>
           <li>Free time & preparations</li>
-          <li>Kommers (formal, festive sitsit-style gathering)</li>
+          <li>Kommers (formal, festive German-styled sitsit)</li>
           <li>
             Bummel – visiting local student fraternities late into the night
           </li>
@@ -89,22 +118,19 @@ export default function Thomastag2025Page() {
       </section>
 
       <section className="mb-8">
-        <h2 className="mb-2 text-2xl font-semibold">Costs & Budget</h2>
+        <h2 className="mb-2 text-2xl font-semibold">What does it cost?</h2>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
-          Accommodation (hostel, shared rooms): ~€100 (final price confirmed
-          soon)
+          <strong>Accommodation</strong> (hostel, shared rooms): €100
         </p>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
-          Event fee (Kommers ticket, logistics, tours, local transit, admin):
-          ~€70
+          <strong>Event fee</strong> (Kommers ticket, logistics, admin): €30
         </p>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
-          Flights: €220–€400 round trip from Helsinki (depending on
-          route/airline)
+          <strong>Flights</strong>: €220–€400 round trip from Helsinki
+          (recommendations available from organizers)
         </p>
         <p className="text-gray-700 dark:text-gray-300">
-          Total estimate: ~€450–550 per person. Flights will be booked
-          individually after sign-up; organizers will share recommended options.
+          Total estimate: ~€350–550 per person.
         </p>
       </section>
 
@@ -112,17 +138,18 @@ export default function Thomastag2025Page() {
         <h2 className="mb-2 text-2xl font-semibold">Accommodation</h2>
         <p className="text-gray-700 dark:text-gray-300">
           We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms. Beds
-          are reserved for our group, and the hostel provides luggage storage
-          for departure day.
+          are reserved for our group, and breakfast is included. The hostel also
+          provides luggage storage for departure day.
+
+          The hostel is part of the historic castle of Nürnberg, highly rated and has a great view over the city and is close to many of the main attractions. More info: <a href="http://nuernberg.jugendherberge.de/">http://nuernberg.jugendherberge.de/</a>
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Who can join?</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          Open to all members of Academic Culture Enjoyers (students & alumni,
-          18+). No German skills required; program will be run in English. 30
-          seats available (first come, first served – waitlist after that).
+          Open to all members of the Academic Culture Enjoyers community
+          (students & alumni)!
         </p>
       </section>
 
@@ -137,20 +164,18 @@ export default function Thomastag2025Page() {
             Weather: December in Nürnberg is cold (0–5°C). Bring a warm coat,
             gloves, and shoes suitable for walking.
           </li>
-          <li>
-            Meals: group dinner on Friday, festive meal at Kommers, and
-            breakfasts at the hostel are included. Other meals at own expense.
-          </li>
-          <li>Travel insurance required: please arrange your own coverage.</li>
         </ul>
       </section>
 
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Sign-up & Payments</h2>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
-          <li>Sign-up deadline: 30 September 2025 (or until full)</li>
-          <li>Deposit: €100 within 7 days of confirmation</li>
-          <li>Balance: due by 1 December 2025</li>
+          <li>{`Sign-up opens: ${THOMASTAG_SIGNUP_OPENS_TEXT}`}</li>
+          <li>{`Sign-up deadline: ${THOMASTAG_SIGNUP_CLOSES_TEXT} (or until full)`}</li>
+          <li>
+            Sign-up will be binding after it’s closing deadline has passed.
+          </li>
+          <li>Hostel payment: €100 within 7 days of sign-up closing</li>
           <li>
             Cancellation policy and payment details will be shared after
             sign-up.
@@ -161,10 +186,9 @@ export default function Thomastag2025Page() {
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Cultural Etiquette</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          We are guests of Southern German fraternities. Respectful behavior is
-          expected at all times — especially during fraternity visits, where
-          traditions are observed seriously. Non-alcoholic options will be
-          available.
+          We are guests of the Southern German fraternities and TSBN. Respectful
+          behavior is expected at all times — especially during fraternity
+          visits.
         </p>
       </section>
 
