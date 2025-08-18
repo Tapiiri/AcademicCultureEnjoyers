@@ -120,8 +120,7 @@ export default function Thomastag2025Page() {
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">What does it cost?</h2>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
-          <strong>Accommodation</strong> (hostel, shared rooms): ~€100 (final
-          price confirmed soon)
+          <strong>Accommodation</strong> (hostel, shared rooms): €100
         </p>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
           <strong>Event fee</strong> (Kommers ticket, logistics, admin): €30
@@ -141,6 +140,8 @@ export default function Thomastag2025Page() {
           We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms. Beds
           are reserved for our group, and breakfast is included. The hostel also
           provides luggage storage for departure day.
+
+          The hostel is part of the historic castle of Nürnberg, highly rated and has a great view over the city and is close to many of the main attractions. More info: <a href="http://nuernberg.jugendherberge.de/">http://nuernberg.jugendherberge.de/</a>
         </p>
       </section>
 
