@@ -1,4 +1,5 @@
 import TallyForm from '@/components/TallyForm';
+import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
 import { getEventSignupForm } from '@/lib/tally';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
@@ -31,8 +32,53 @@ export const metadata: Metadata = {
 };
 
 export default function Thomastag2025Page() {
+  // Define all event images for the carousel
+  const eventImages = [
+    {
+      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max",
+      alt: "City of Nuremberg",
+      caption: "",
+      width: 1800,
+      height: 500,
+      crop: true,
+      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg",
+      fullWidth: 4000,
+      fullHeight: 867,
+    },
+    {
+      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg?tr=w-500,h-315,c-at_max",
+      alt: "Imperial Castle of Nuremberg",
+      caption: "Imperial Castle of Nuremberg — Photo: Thomas F.A.N",
+      width: 500,
+      height: 315,
+      crop: false,
+      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg",
+      fullWidth: 2048,
+      fullHeight: 1287,
+    },
+    {
+      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg?tr=w-700,h-440,c-at_max",
+      alt: "A tower of the castle",
+      caption: "A tower of the castle — Photo: Thomas F.A.N",
+      width: 700,
+      height: 440,
+      crop: false,
+      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg",
+      fullWidth: 2048,
+      fullHeight: 1365,
+    },
+  ];
   return (
     <main className="mx-auto max-w-3xl p-8">
+      {/* Top hero image, cropped */}
+      <ClientImageWithCarousel
+        images={eventImages}
+        index={0}
+        width={1800}
+        height={500}
+        className="mb-8"
+        crop={true}
+      />
       <h1 className="mb-2 text-3xl font-bold">
         Thomastag: Southern German Traditions Weekend
       </h1>
@@ -105,6 +151,16 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
+  <div className="mb-6 float-right ml-6">
+        <ClientImageWithCarousel
+          images={eventImages}
+          index={1}
+          width={500}
+          height={315}
+          className="w-full"
+          crop={false}
+        />
+      </div>
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
@@ -153,6 +209,16 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
+  <div className="mb-6 float-right ml-6">
+        <ClientImageWithCarousel
+          images={eventImages}
+          index={2}
+          width={700}
+          height={440}
+          className="w-full"
+          crop={false}
+        />
+      </div>
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Accommodation</h2>
         <p className="text-gray-700 dark:text-gray-300">
