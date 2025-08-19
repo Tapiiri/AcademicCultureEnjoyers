@@ -48,10 +48,9 @@ export default function Thomastag2025Page() {
           student tradition.
         </p>
         <p className="mt-4 text-gray-700 dark:text-gray-300">
-          The organizers of the event,{' '}
-          <em>Traditional Association of Student Customs Nuremberg</em>{' '}
-          (Traditionsverein Studentisches Brauchtum Nürnberg e.V., or TSBN),
-          describe the history of the event as follows:
+          The <em>Traditional Association of Student Customs Nuremberg</em>{' '}
+          (Traditionsverein Studentisches Brauchtum Nürnberg e.V., or TSBN)
+          describes the history of the event as follows:
         </p>
         <blockquote className="mt-4 border-l-4 border-blue-500 pl-4 text-gray-700 italic dark:text-gray-300">
           <p>
@@ -74,8 +73,9 @@ export default function Thomastag2025Page() {
         <p className="mt-4 text-gray-700 dark:text-gray-300">
           To this day, Thomastag is celebrated among the student fraternities of
           Nürnberg, and this year, the Academic Culture Enjoyers are proud to
-          have been invited by TSBN to participate in this particularly
-          traditional event of student culture!
+          have been invited by the hosting fraternity Onoldia and the
+          Schwarzburgbund to participate in this particularly traditional event
+          of student culture!
         </p>
         <p className="mt-4 text-gray-700 dark:text-gray-300">
           {`Below, you will find detailed information about the event. Sign-up starts ${THOMASTAG_SIGNUP_OPENS_TEXT} — sign up by ${THOMASTAG_SIGNUP_CLOSES_TEXT} to join us for the first big trip by Academic Culture Enjoyers!`}
@@ -88,10 +88,29 @@ export default function Thomastag2025Page() {
       </section>
 
       <section className="mb-8">
+        <h2 className="mb-2 text-2xl font-semibold">
+          Who is organizing this event?
+        </h2>
+        <p className="text-gray-700 dark:text-gray-300">
+          The event is organized by members of ACE in cooperation with a local
+          fraternity, Akademische Verbindung Landsmannschaft Onoldia Altdorf zu
+          Nürnberg (Onoldia for short). Onoldia and their parent organization,
+          Schwarzburgbund, will be holding a formal traditional event, the
+          Kommers, and have invited us as guests. Additionally, after the
+          Kommers many fraternity houses, including Onoldia, will open their
+          doors to visitors. Many other friendly fraternities will be attending
+          as well, giving you great opportunities to make connections with more
+          organizations and people. The Thomasbummel on Sunday will be organized
+          by the Schwarzburgbund.
+        </p>
+      </section>
+
+      <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>Arrival in Nuremberg (Recommended)</li>
+          <li>Group check-in to the hostel (time TBA)</li>
           <li>
             Welcome evening: group dinner & beers (restaurant booking by ACE)
           </li>
@@ -103,7 +122,10 @@ export default function Thomastag2025Page() {
             Guided tour of Nürnberg with a local expert (history, culture,
             hidden gems)
           </li>
-          <li>Free time & preparations</li>
+          <li>
+            Time to explore the city’s many cultural and historical treasures on
+            your own. A list of notable destinations will be provided.
+          </li>
           <li>Kommers (formal, festive German-styled sitsit)</li>
           <li>
             Bummel – visiting local student fraternities late into the night
@@ -112,7 +134,7 @@ export default function Thomastag2025Page() {
         <h3 className="mb-1 font-semibold">Sunday 21 Dec</h3>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>Nürnberg Christmas Market visit</li>
-          <li>Optional “ex-Bummel” with local hosts</li>
+          <li>Thomasbummel with Schwarzburgbund</li>
           <li>Return flights (luggage room available at hostel)</li>
         </ul>
       </section>
@@ -123,25 +145,26 @@ export default function Thomastag2025Page() {
           <strong>Accommodation</strong> (hostel, shared rooms): €100
         </p>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
-          <strong>Event fee</strong> (Kommers ticket, logistics, admin): €30
-        </p>
-        <p className="mb-2 text-gray-700 dark:text-gray-300">
           <strong>Flights</strong>: €220–€400 round trip from Helsinki
           (recommendations available from organizers)
         </p>
         <p className="text-gray-700 dark:text-gray-300">
-          Total estimate: ~€350–550 per person.
+          Total estimate: ~€320–500 per person.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Accommodation</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms. Beds
-          are reserved for our group, and breakfast is included. The hostel also
-          provides luggage storage for departure day.
-
-          The hostel is part of the historic castle of Nürnberg, highly rated and has a great view over the city and is close to many of the main attractions. More info: <a href="http://nuernberg.jugendherberge.de/">http://nuernberg.jugendherberge.de/</a>
+          We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms with
+          four beds each. We will try to match participants according to their preferences informed in the signup. Beds are reserved for our group, and
+          breakfast is included. The hostel also provides luggage storage for
+          departure day. The hostel is part of the historic castle of Nürnberg,
+          highly rated and has a great view over the city and is close to many
+          of the main attractions. More info:{' '}
+          <a href="http://nuernberg.jugendherberge.de/">
+            http://nuernberg.jugendherberge.de/
+          </a>
         </p>
       </section>
 
@@ -164,6 +187,14 @@ export default function Thomastag2025Page() {
             Weather: December in Nürnberg is cold (0–5°C). Bring a warm coat,
             gloves, and shoes suitable for walking.
           </li>
+          <li>
+            Cash is king in Germany; make sure you carry enough. A meal costs
+            about €20, a beer or Glühwein about €5.
+          </li>
+          <li>
+            The old town is small enough to walk everywhere, but we will share
+            information about local transport ticket options closer to the date.
+          </li>
         </ul>
       </section>
 
@@ -173,7 +204,7 @@ export default function Thomastag2025Page() {
           <li>{`Sign-up opens: ${THOMASTAG_SIGNUP_OPENS_TEXT}`}</li>
           <li>{`Sign-up deadline: ${THOMASTAG_SIGNUP_CLOSES_TEXT} (or until full)`}</li>
           <li>
-            Sign-up will be binding after it’s closing deadline has passed.
+            Sign-up will be binding after its closing deadline has passed.
           </li>
           <li>Hostel payment: €100 within 7 days of sign-up closing</li>
           <li>
@@ -186,9 +217,8 @@ export default function Thomastag2025Page() {
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">Cultural Etiquette</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          We are guests of the Southern German fraternities and TSBN. Respectful
-          behavior is expected at all times — especially during fraternity
-          visits.
+          We are guests of Onoldia and the Schwarzburgbund. Respectful behavior
+          is expected at all times — especially during fraternity visits.
         </p>
       </section>
 
