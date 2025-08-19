@@ -1,5 +1,5 @@
-import TallyForm from '@/components/TallyForm';
 import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
+import TallyForm from '@/components/TallyForm';
 import { getEventSignupForm } from '@/lib/tally';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
@@ -28,6 +28,23 @@ export const metadata: Metadata = {
       'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
     url: 'https://academiccultureenjoyers.org/events/thomastag-2025',
     siteName: 'Academic Culture Enjoyers',
+    images: [
+      {
+        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1200,h-630,c-at_max',
+        width: 1200,
+        height: 630,
+        alt: 'City of Nürnberg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Thomastag 2025 – Southern German Traditions Weekend',
+    description:
+      'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
+    images: [
+      'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1200,h-630,c-at_max',
+    ],
   },
 };
 
@@ -35,35 +52,38 @@ export default function Thomastag2025Page() {
   // Define all event images for the carousel
   const eventImages = [
     {
-      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max",
-      alt: "City of Nuremberg",
-      caption: "",
+      src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max',
+      alt: 'City of Nuremberg',
+      caption: '',
       width: 1800,
       height: 500,
       crop: true,
-      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg",
+      fullSrc:
+        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg',
       fullWidth: 4000,
       fullHeight: 867,
     },
     {
-      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg?tr=w-500,h-315,c-at_max",
-      alt: "Imperial Castle of Nuremberg",
-      caption: "Imperial Castle of Nuremberg — Photo: Thomas F.A.N",
+      src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg?tr=w-500,h-315,c-at_max',
+      alt: 'Imperial Castle of Nuremberg',
+      caption: 'Imperial Castle of Nuremberg — Photo: Thomas F.A.N',
       width: 500,
       height: 315,
       crop: false,
-      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg",
+      fullSrc:
+        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg',
       fullWidth: 2048,
       fullHeight: 1287,
     },
     {
-      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg?tr=w-700,h-440,c-at_max",
-      alt: "A tower of the castle",
-      caption: "A tower of the castle — Photo: Thomas F.A.N",
+      src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg?tr=w-700,h-440,c-at_max',
+      alt: 'A tower of the castle',
+      caption: 'A tower of the castle — Photo: Thomas F.A.N',
       width: 700,
       height: 440,
       crop: false,
-      fullSrc: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg",
+      fullSrc:
+        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg',
       fullWidth: 2048,
       fullHeight: 1365,
     },
@@ -151,7 +171,7 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-  <div className="mb-6 float-right ml-6">
+      <div className="float-right mb-6 ml-6">
         <ClientImageWithCarousel
           images={eventImages}
           index={1}
@@ -209,7 +229,7 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-  <div className="mb-6 float-right ml-6">
+      <div className="float-right mb-6 ml-6">
         <ClientImageWithCarousel
           images={eventImages}
           index={2}
@@ -223,11 +243,12 @@ export default function Thomastag2025Page() {
         <h2 className="mb-2 text-2xl font-semibold">Accommodation</h2>
         <p className="text-gray-700 dark:text-gray-300">
           We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms with
-          four beds each. We will try to match participants according to their preferences informed in the signup. Beds are reserved for our group, and
-          breakfast is included. The hostel also provides luggage storage for
-          departure day. The hostel is part of the historic castle of Nürnberg,
-          highly rated and has a great view over the city and is close to many
-          of the main attractions. More info:{' '}
+          four beds each. We will try to match participants according to their
+          preferences informed in the signup. Beds are reserved for our group,
+          and breakfast is included. The hostel also provides luggage storage
+          for departure day. The hostel is part of the historic castle of
+          Nürnberg, highly rated and has a great view over the city and is close
+          to many of the main attractions. More info:{' '}
           <a href="http://nuernberg.jugendherberge.de/">
             http://nuernberg.jugendherberge.de/
           </a>
