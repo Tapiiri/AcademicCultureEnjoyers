@@ -1,5 +1,6 @@
 import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
 import TallyForm from '@/components/TallyForm';
+import HeroVideoWithModal from '@/components/HeroVideoWithModal';
 import { getEventSignupForm } from '@/lib/tally';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
@@ -11,7 +12,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Thomastag 2025 – Southern German Traditions Weekend',
-  description:
+  description:  
     'Join Academic Culture Enjoyers in Nürnberg, 19–21 December 2025, for a weekend of student traditions and holiday spirit.',
   keywords: [
     'Thomastag',
@@ -89,22 +90,16 @@ export default function Thomastag2025Page() {
     },
   ];
   return (
-    <main className="mx-auto max-w-3xl p-8">
-      {/* Top hero image, cropped */}
-      <ClientImageWithCarousel
-        images={eventImages}
-        index={0}
-        width={1800}
-        height={500}
-        className="mb-8"
-        crop={true}
-      />
-      <h1 className="mb-2 text-3xl font-bold">
-        Thomastag: Southern German Traditions Weekend
-      </h1>
-      <p className="mb-8 text-gray-700 dark:text-gray-300">
-        19–21 December 2025 · Nürnberg, Germany
-      </p>
+    <main className="mx-auto max-w-3xl p-0">
+      {/* Hero section with clickable video background and modal */}
+      <HeroVideoWithModal images={eventImages} index={0}>
+        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-4 mt-10 md:mt-20">
+          Thomastag: Southern German Traditions Weekend
+        </h1>
+        <p className="text-lg md:text-2xl text-gray-200 drop-shadow mb-2">
+          19–21 December 2025 · Nürnberg, Germany
+        </p>
+      </HeroVideoWithModal>
 
       <section className="mb-8">
         <h2 className="mb-2 text-2xl font-semibold">What is Thomastag?</h2>
@@ -174,7 +169,7 @@ export default function Thomastag2025Page() {
       <div className="float-right mb-6 ml-6">
         <ClientImageWithCarousel
           images={eventImages}
-          index={1}
+          index={2}
           width={500}
           height={315}
           className="w-full"
@@ -232,7 +227,7 @@ export default function Thomastag2025Page() {
       <div className="float-right mb-6 ml-6">
         <ClientImageWithCarousel
           images={eventImages}
-          index={2}
+          index={3}
           width={700}
           height={440}
           className="w-full"

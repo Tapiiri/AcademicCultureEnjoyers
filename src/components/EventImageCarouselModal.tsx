@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+
 import Image from "next/image";
 
 export interface CarouselImage {
@@ -8,6 +9,8 @@ export interface CarouselImage {
   caption: string;
   width: number;
   height: number;
+  type?: "image" | "video";
+  poster?: string;
   fullSrc?: string;
   fullWidth?: number;
   fullHeight?: number;
@@ -37,6 +40,7 @@ export default function EventImageCarouselModal({
   const displaySrc = img.fullSrc || img.src;
   const displayWidth = img.fullWidth || img.width;
   const displayHeight = img.fullHeight || img.height;
+  const isPortrait = displayHeight > displayWidth;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={onClose}>
       <div className="relative max-w-3xl w-full" onClick={e => e.stopPropagation()}>
@@ -63,13 +67,29 @@ export default function EventImageCarouselModal({
             <polygon points="10,7 18,14 10,21" fill="white" />
           </svg>
         </button>
-        <Image
-          src={displaySrc}
-          alt={img.alt}
-          width={displayWidth}
-          height={displayHeight}
-          className="w-full h-auto rounded-lg shadow-lg object-contain"
-        />
+        {img.type === "video" ? (
+          <video
+            src={displaySrc}
+            width={displayWidth}
+            height={displayHeight}
+            className={`rounded-lg shadow-lg object-contain ${isPortrait ? 'mx-auto max-h-[70vh] w-auto' : 'w-full h-auto'}`}
+            autoPlay
+            loop
+            muted
+            controls
+            playsInline
+            poster={img.poster}
+            style={{ background: "#222", display: 'block' }}
+          />
+        ) : (
+          <Image
+            src={displaySrc}
+            alt={img.alt}
+            width={displayWidth}
+            height={displayHeight}
+            className="w-full h-auto rounded-lg shadow-lg object-contain"
+          />
+        )}
         <div className="text-xs text-gray-300 text-center mt-2">{img.caption}</div>
         <div className="text-xs text-gray-400 text-center mt-1">{index + 1} / {images.length}</div>
       </div>
