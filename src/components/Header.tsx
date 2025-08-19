@@ -15,7 +15,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b bg-white/60 text-gray-700 backdrop-blur dark:bg-gray-900/60 dark:text-gray-300">
+  <header className="z-30 relative border-b bg-white text-gray-700 shadow-md dark:bg-gray-900 dark:text-gray-300">
       <a href="#content" className="sr-only focus:not-sr-only">
         Skip to main content
       </a>

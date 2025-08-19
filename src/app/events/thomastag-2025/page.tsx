@@ -1,6 +1,6 @@
 import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
-import TallyForm from '@/components/TallyForm';
 import HeroVideoWithModal from '@/components/HeroVideoWithModal';
+import TallyForm from '@/components/TallyForm';
 import { getEventSignupForm } from '@/lib/tally';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
@@ -53,9 +53,18 @@ export default function Thomastag2025Page() {
   // Define all event images for the carousel
   const eventImages = [
     {
-      src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max',
-      alt: 'City of Nuremberg',
-      caption: '',
+      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/train_slowed_loop.mp4",
+      alt: "Wonders of Onoldia",
+      caption: "Wonders of Onoldia — Video: Aleksandra",
+      width: 482,
+      height: 592,
+      type: "video" as const,
+      poster: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/train-poster.jpg",
+    },
+    {
+      src: "https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max",
+      alt: "Nuremberg",
+      caption: "Nuremberg — Photo: Thomas F.A.N",
       width: 1800,
       height: 500,
       crop: true,
@@ -66,42 +75,71 @@ export default function Thomastag2025Page() {
     },
     {
       src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg?tr=w-500,h-315,c-at_max',
-      alt: 'Imperial Castle of Nuremberg',
-      caption: 'Imperial Castle of Nuremberg — Photo: Thomas F.A.N',
+      alt: 'City walls of Nuremberg',
+      caption: 'City walls of Nuremberg — Photo: Thomas F.A.N',
       width: 500,
       height: 315,
       crop: false,
       fullSrc:
-        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg',
+      'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/castle.jpg',
       fullWidth: 2048,
       fullHeight: 1287,
     },
     {
       src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg?tr=w-700,h-440,c-at_max',
-      alt: 'A tower of the castle',
-      caption: 'A tower of the castle — Photo: Thomas F.A.N',
+      alt: 'A tower of the city wall',
+      caption: 'A tower of the city walls — Photo: Thomas F.A.N',
       width: 700,
       height: 440,
       crop: false,
       fullSrc:
-        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg',
+      'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/tower.jpg',
       fullWidth: 2048,
       fullHeight: 1365,
     },
+    {
+      src: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/river.jpg?tr=w-768,h-400,c-at_max',
+      alt: 'The Regnitz River',
+      caption: 'The Regnitz River — Photo: Thomas F.A.N',
+      width: 768, // max-w-3xl = 768px
+      height: 400,
+      crop: true,
+      fullSrc:
+        'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/river.jpg',
+      fullWidth: 2048,
+      fullHeight: 1287,
+    },
   ];
   return (
-    <main className="mx-auto max-w-3xl p-0">
-      {/* Hero section with clickable video background and modal */}
-      <HeroVideoWithModal images={eventImages} index={0}>
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-4 mt-10 md:mt-20">
-          Thomastag: Southern German Traditions Weekend
-        </h1>
-        <p className="text-lg md:text-2xl text-gray-200 drop-shadow mb-2">
-          19–21 December 2025 · Nürnberg, Germany
-        </p>
-      </HeroVideoWithModal>
+    <div className="relative">
+      {/* Backdrop image for the whole page */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-0 z-0 w-full h-[80vh] bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            'linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-1100,c-at_max)',
+          maskImage:
+            'linear-gradient(to bottom, black 70%, transparent 100%)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, black 70%, transparent 100%)',
+        }}
+      />
+  <main className="relative z-10 mx-auto max-w-3xl p-0 bg-white/90 rounded-lg shadow-md">
 
-      <section className="mb-8">
+      {/* Hero section with clickable video background and modal, width matches content */}
+      <section className="max-w-3xl mx-auto">
+        <HeroVideoWithModal images={eventImages} index={0}>
+          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-4 mt-10 md:mt-20">
+            Thomastag: Southern German Traditions Weekend
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-200 drop-shadow mb-2">
+            19–21 December 2025 · Nürnberg, Germany
+          </p>
+        </HeroVideoWithModal>
+      </section>
+
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">What is Thomastag?</h2>
         <p className="text-gray-700 dark:text-gray-300">
           Thomastag is the German holiday that marks the shortest day of the
@@ -148,7 +186,7 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">
           Who is organizing this event?
         </h2>
@@ -176,7 +214,7 @@ export default function Thomastag2025Page() {
           crop={false}
         />
       </div>
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
@@ -210,7 +248,7 @@ export default function Thomastag2025Page() {
         </ul>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">What does it cost?</h2>
         <p className="mb-2 text-gray-700 dark:text-gray-300">
           <strong>Accommodation</strong> (hostel, shared rooms): €100
@@ -234,7 +272,7 @@ export default function Thomastag2025Page() {
           crop={false}
         />
       </div>
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Accommodation</h2>
         <p className="text-gray-700 dark:text-gray-300">
           We’ll stay in a hostel in Nürnberg, in shared dorm-style rooms with
@@ -250,7 +288,7 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Who can join?</h2>
         <p className="text-gray-700 dark:text-gray-300">
           Open to all members of the Academic Culture Enjoyers community
@@ -258,7 +296,7 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Practical Notes</h2>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>
@@ -280,7 +318,7 @@ export default function Thomastag2025Page() {
         </ul>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Sign-up & Payments</h2>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>{`Sign-up opens: ${THOMASTAG_SIGNUP_OPENS_TEXT}`}</li>
@@ -296,7 +334,7 @@ export default function Thomastag2025Page() {
         </ul>
       </section>
 
-      <section className="mb-8">
+  <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Cultural Etiquette</h2>
         <p className="text-gray-700 dark:text-gray-300">
           We are guests of Onoldia and the Schwarzburgbund. Respectful behavior
@@ -304,8 +342,19 @@ export default function Thomastag2025Page() {
         </p>
       </section>
 
+
+      <div className="flex justify-center">
+        <ClientImageWithCarousel
+          images={eventImages}
+          index={4}
+          className="w-full max-w-3xl max-h-[60vh] object-cover mx-auto"
+          crop={true}
+        />
+      </div>
+
       <SignupSection />
     </main>
+  </div>
   );
 }
 
