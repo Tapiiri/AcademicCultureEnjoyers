@@ -33,11 +33,9 @@ body {
 }
 
 .event-dark-section {
-  background: #181c24;
-  color: #f3f4f6;
-  /* fallback for browsers that ignore color-scheme */
+  background: rgba(255,255,255,0.90);
+  color: #171717;
 }
-
 @media (prefers-color-scheme: dark) {
   .event-dark-section {
     background: #181c24;
