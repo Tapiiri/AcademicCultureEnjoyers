@@ -115,7 +115,7 @@ export default function Thomastag2025Page() {
       {/* Backdrop image for the whole page */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 z-0 w-full h-[80vh] bg-cover bg-center bg-no-repeat"
+        className="event-bg-cityscape pointer-events-none absolute top-0 left-0 z-0 w-full h-[80vh] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
             'linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-1100,c-at_max)',
@@ -125,7 +125,7 @@ export default function Thomastag2025Page() {
             'linear-gradient(to bottom, black 70%, transparent 100%)',
         }}
       />
-  <main className="relative z-10 mx-auto max-w-3xl p-0 bg-white/90 rounded-lg shadow-md">
+      <main className="event-dark-section relative z-10 mx-auto max-w-3xl p-0 bg-white/90 dark:bg-[#181c24] rounded-lg shadow-md">
 
       {/* Hero section with clickable video background and modal, width matches content */}
       <section className="max-w-3xl mx-auto">

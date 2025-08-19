@@ -62,6 +62,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="color-scheme" content="light dark" />
+      </head>
       <body className="flex min-h-screen flex-col bg-gradient-to-b from-white to-blue-50 antialiased dark:from-gray-900 dark:to-gray-950">
         <Header />
         <main id="content" className="flex-1">

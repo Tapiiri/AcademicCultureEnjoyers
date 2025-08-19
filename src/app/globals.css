@@ -1,3 +1,19 @@
+/* Subtle dark mode for front page hero */
+.front-hero-gradient {
+  /* Light mode: blue to indigo to purple gradient */
+  background-image: linear-gradient(to right, #1e40af 0%, #6366f1 50%, #7c3aed 100%);
+}
+@media (prefers-color-scheme: dark) {
+  .front-hero-gradient {
+    /* Dark mode: deep blue to indigo to muted purple */
+    background-image: linear-gradient(to right, #22305b 0%, #384e7c 40%, #4f3a63 100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .event-bg-cityscape {
+    filter: brightness(0.5) contrast(1.1);
+  }
+}
 @import 'tailwindcss';
 
 :root {
@@ -13,4 +29,18 @@
 body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  color-scheme: light dark;
+}
+
+.event-dark-section {
+  background: #181c24;
+  color: #f3f4f6;
+  /* fallback for browsers that ignore color-scheme */
+}
+
+@media (prefers-color-scheme: dark) {
+  .event-dark-section {
+    background: #181c24;
+    color: #f3f4f6;
+  }
 }

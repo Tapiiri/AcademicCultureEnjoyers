@@ -88,7 +88,7 @@ async function ThomastagHero() {
   const formId = await getEventSignupForm('Thomastag 2025');
   const signupOpen = isThomastagSignupOpen();
         return (
-          <section className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 py-20 text-center text-white">
+          <section className="front-hero-gradient py-20 text-center text-white">
             <div className="mx-auto max-w-4xl px-8">
               <HomeHeroImageClient
                 src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max"
