@@ -136,7 +136,17 @@ export default function Thomastag2025Page() {
         </HeroVideoWithModal>
       </section>
 
-  <section className="mb-8 px-4 md:px-8">
+      {/* Top call-to-action */}
+      <section className="mb-8 px-4 md:px-8 flex justify-center">
+        <Link
+          href="https://signup.academicculture.org/events/thomastag-2025"
+          className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+        >
+          {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+        </Link>
+      </section>
+
+      <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">What is Thomastag?</h2>
         <p className="text-gray-700 dark:text-gray-300">
           Thomastag is the German holiday that marks the shortest day of the
