@@ -1,9 +1,5 @@
 import HomeHeroImageClient from '@/components/HomeHeroImageClient';
-import { getEventSignupForm } from '@/lib/tally';
-import {
-  THOMASTAG_SIGNUP_OPENS_TEXT,
-  isThomastagSignupOpen,
-} from '@/lib/thomastag';
+import { THOMASTAG_SIGNUP_OPENS_TEXT } from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -84,55 +80,35 @@ export default function Home() {
 
 
 
-async function ThomastagHero() {
-  const formId = await getEventSignupForm('Thomastag 2025');
-  const signupOpen = isThomastagSignupOpen();
-        return (
-          <section className="front-hero-gradient py-20 text-center text-white">
-            <div className="mx-auto max-w-4xl px-8">
-              <HomeHeroImageClient
-                src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max"
-                alt="City of Nuremberg"
-                width={1800}
-                height={500}
-                crop={true}
-                caption=""
-              />
-              <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
-              <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/events/thomastag-2025"
-                  className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
-                >
-                  Event details
-                </Link>
-                {signupOpen ? (
-                  formId ? (
-                    <Link
-                      href={`https://tally.so/r/${formId}`}
-                      className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-                    >
-                      Sign up now
-                    </Link>
-                  ) : (
-                    <button
-                      disabled
-                      className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
-                    >
-                      Signup form unavailable. Please try again later.
-                    </button>
-                  )
-                ) : (
-                  <button
-                    disabled
-                    className="cursor-not-allowed rounded bg-white/30 px-6 py-3 font-semibold text-white opacity-80"
-                  >
-                    {`Sign-up opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-                  </button>
-                )}
-              </div>
-            </div>
-          </section>
-        );
+function ThomastagHero() {
+  return (
+    <section className="front-hero-gradient py-20 text-center text-white">
+      <div className="mx-auto max-w-4xl px-8">
+        <HomeHeroImageClient
+          src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max"
+          alt="City of Nuremberg"
+          width={1800}
+          height={500}
+          crop={true}
+          caption=""
+        />
+        <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
+        <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link
+            href="/events/thomastag-2025"
+            className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
+          >
+            Event details
+          </Link>
+          <Link
+            href="https://signup.academicculture.org/events/thomastag-2025"
+            className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+          >
+            {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }

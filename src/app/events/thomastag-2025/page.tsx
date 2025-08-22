@@ -1,11 +1,8 @@
 import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
 import HeroVideoWithModal from '@/components/HeroVideoWithModal';
-import TallyForm from '@/components/TallyForm';
-import { getEventSignupForm } from '@/lib/tally';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
   THOMASTAG_SIGNUP_OPENS_TEXT,
-  isThomastagSignupOpen,
 } from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -139,7 +136,17 @@ export default function Thomastag2025Page() {
         </HeroVideoWithModal>
       </section>
 
-  <section className="mb-8 px-4 md:px-8">
+      {/* Top call-to-action */}
+      <section className="mb-8 px-4 md:px-8 flex justify-center">
+        <Link
+          href="https://signup.academicculture.org/events/thomastag-2025"
+          className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+        >
+          {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+        </Link>
+      </section>
+
+      <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">What is Thomastag?</h2>
         <p className="text-gray-700 dark:text-gray-300">
           Thomastag is the German holiday that marks the shortest day of the
@@ -358,25 +365,16 @@ export default function Thomastag2025Page() {
   );
 }
 
-async function SignupSection() {
-  const formId = await getEventSignupForm('Thomastag 2025');
-  const signupOpen = isThomastagSignupOpen();
+function SignupSection() {
   return (
     <section className="text-center">
       <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
-      {signupOpen ? (
-        formId ? (
-          <TallyForm formId={formId} height={600} />
-        ) : (
-          <p className="text-gray-700 dark:text-gray-300">
-            Signup form unavailable. Please try again later.
-          </p>
-        )
-      ) : (
-        <p className="text-gray-700 dark:text-gray-300">
-          {`Sign-up opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-        </p>
-      )}
+      <Link
+        href="https://signup.academicculture.org/events/thomastag-2025"
+        className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+      >
+        {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+      </Link>
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         Seats are limited to 30 — first come, first served.
       </p>
