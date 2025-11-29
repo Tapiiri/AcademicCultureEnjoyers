@@ -221,13 +221,13 @@ export default function Thomastag2025Page() {
           crop={false}
         />
       </div>
-  <section className="mb-8 px-4 md:px-8">
+  <section id="program" className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>
             18:00: Group check-in to the hostel (stragglers please message
-            Thomas F.A.N). Address: Burg 2, 90403 Nürnberg
+            @tfa_n on Telegram). Address: Burg 2, 90403 Nürnberg
           </li>
           <li>
             19:00–21:00: Group dinner & beers at Hexenhäusle (restaurant booking
