@@ -225,32 +225,56 @@ export default function Thomastag2025Page() {
         <h2 className="mb-2 text-2xl font-semibold">Program Overview</h2>
         <h3 className="mb-1 font-semibold">Friday 19 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
-          <li>Arrival in Nuremberg (Recommended)</li>
-          <li>Group check-in to the hostel (time TBA)</li>
           <li>
-            Welcome evening: group dinner & beers (restaurant booking by ACE)
+            18:00: Group check-in to the hostel (stragglers please message
+            Thomas F.A.N). Address: Burg 2, 90403 Nürnberg
+          </li>
+          <li>
+            19:00–21:00: Group dinner & beers at Hexenhäusle (restaurant booking
+            by ACE). Address: Vestnertorgraben 4, 90408 Nürnberg
+          </li>
+          <li>
+            Afterwards: Thomastag welcome evening at Onoldia for intermingling
+            with German fraternities. Address: Ottostraße 40, 90402 Nürnberg
           </li>
         </ul>
         <h3 className="mb-1 font-semibold">Saturday 20 Dec</h3>
         <ul className="mb-4 list-disc pl-6 text-gray-700 dark:text-gray-300">
-          <li>Arrival in Nuremberg (Latest)</li>
+          <li>Until 10:00: Breakfast at the youth hostel</li>
           <li>
-            Guided tour of Nürnberg with a local expert (history, culture,
-            hidden gems)
+            10:00: Guided tour of Nürnberg in English/Finnish, starting in front
+            of the youth hostel
           </li>
           <li>
-            Time to explore the city’s many cultural and historical treasures on
-            your own. A list of notable destinations will be provided.
+            12:00–17:00: Free exploration of the city. Check{' '}
+            <a
+              className="underline"
+              href="https://maps.app.goo.gl/XDU2fscwv7dqjDHx5"
+            >
+              our list of noteworthy destinations
+            </a>{' '}
+            for suggestions — the Christmas market is highly recommended!
           </li>
-          <li>Kommers (formal, festive German-styled sitsit)</li>
           <li>
-            Bummel – visiting local student fraternities late into the night
+            17:00–18:30: Group dinner at local brewery Tucher-Bräu. Address: Am
+            Kartäusertor 1, 90402 Nürnberg
           </li>
+          <li>18:30–19:30: Getting ready for Kommers. Dress code: black suit, white shirt or equivalent.</li>
+          <li>
+            20:00–00:00: Kommers at Germanisches Nationalmuseum. Address:
+            Kartäusergasse 1, 90402 Nürnberg
+          </li>
+          <li>00:00–open end: Beers with local fraternities</li>
         </ul>
         <h3 className="mb-1 font-semibold">Sunday 21 Dec</h3>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
-          <li>Nürnberg Christmas Market visit</li>
-          <li>Thomasbummel with Schwarzburgbund</li>
+          <li>Until 10:00: Breakfast at the youth hostel</li>
+          <li>10:00: Group checkout at the youth hostel</li>
+          <li>10:00–14:00: Free exploration</li>
+          <li>
+            14:00: Thomasbummel at the Christmas market to close out the
+            weekend
+          </li>
           <li>Return flights (luggage room available at hostel)</li>
         </ul>
       </section>
@@ -321,6 +345,27 @@ export default function Thomastag2025Page() {
           <li>
             The old town is small enough to walk everywhere, but we will share
             information about local transport ticket options closer to the date.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-8 px-4 md:px-8">
+        <h2 className="mb-2 text-2xl font-semibold">Helpful links</h2>
+        <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
+          <li>
+            <a className="underline" href="https://www.christkindlesmarkt.de/">
+              Nürnberg Christmas Market details
+            </a>
+          </li>
+          <li>
+            <a className="underline" href="https://www.vgn.de/service/app/">
+              Local public transport app (VGN)
+            </a>
+          </li>
+          <li>
+            <a className="underline" href="https://int.bahn.de/en/booking-information/db-navigator">
+              DB Navigator: general German public transport app
+            </a>
           </li>
         </ul>
       </section>
