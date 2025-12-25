@@ -2,7 +2,9 @@ import ClientImageWithCarousel from '@/components/ClientImageWithCarousel';
 import HeroVideoWithModal from '@/components/HeroVideoWithModal';
 import {
   THOMASTAG_SIGNUP_CLOSES_TEXT,
+  THOMASTAG_SIGNUP_IS_OPEN,
   THOMASTAG_SIGNUP_OPENS_TEXT,
+  THOMASTAG_SIGNUP_STATUS_TEXT,
 } from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -138,12 +140,18 @@ export default function Thomastag2025Page() {
 
       {/* Top call-to-action */}
       <section className="mb-8 px-4 md:px-8 flex justify-center">
-        <Link
-          href="https://signup.academicculture.org/events/thomastag-2025"
-          className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-        >
-          {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-        </Link>
+        {THOMASTAG_SIGNUP_IS_OPEN ? (
+          <Link
+            href="https://signup.academicculture.org/events/thomastag-2025"
+            className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+          >
+            {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+          </Link>
+        ) : (
+          <span className="rounded bg-gray-200 px-6 py-3 font-semibold text-gray-700">
+            {THOMASTAG_SIGNUP_STATUS_TEXT}
+          </span>
+        )}
       </section>
 
       <section className="mb-8 px-4 md:px-8">
@@ -184,7 +192,7 @@ export default function Thomastag2025Page() {
           of student culture!
         </p>
         <p className="mt-4 text-gray-700 dark:text-gray-300">
-          {`Below, you will find detailed information about the event. Sign-up starts ${THOMASTAG_SIGNUP_OPENS_TEXT} — sign up by ${THOMASTAG_SIGNUP_CLOSES_TEXT} to join us for the first big trip by Academic Culture Enjoyers!`}
+          {`Below, you will find detailed information about the event. Sign-up is now closed as of ${THOMASTAG_SIGNUP_CLOSES_TEXT}.`}
         </p>
         <p className="mt-2 text-sm text-gray-600 italic dark:text-gray-400">
           NOTE: You’ll need to book your own flights — while the event
@@ -373,11 +381,8 @@ export default function Thomastag2025Page() {
   <section className="mb-8 px-4 md:px-8">
         <h2 className="mb-2 text-2xl font-semibold">Sign-up & Payments</h2>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
-          <li>{`Sign-up opens: ${THOMASTAG_SIGNUP_OPENS_TEXT}`}</li>
-          <li>{`Sign-up deadline: ${THOMASTAG_SIGNUP_CLOSES_TEXT} (or until full)`}</li>
-          <li>
-            Sign-up will be binding after its closing deadline has passed.
-          </li>
+          <li>{THOMASTAG_SIGNUP_STATUS_TEXT}</li>
+          <li>{`Sign-up closed on ${THOMASTAG_SIGNUP_CLOSES_TEXT}.`}</li>
           <li>Hostel payment: €100 within 7 days of sign-up closing</li>
           <li>
             Cancellation policy and payment details will be shared after
@@ -414,12 +419,18 @@ function SignupSection() {
   return (
     <section className="text-center">
       <h2 className="mb-4 text-2xl font-semibold">Ready to join?</h2>
-      <Link
-        href="https://signup.academicculture.org/events/thomastag-2025"
-        className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-      >
-        {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-      </Link>
+      {THOMASTAG_SIGNUP_IS_OPEN ? (
+        <Link
+          href="https://signup.academicculture.org/events/thomastag-2025"
+          className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+        >
+          {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+        </Link>
+      ) : (
+        <span className="rounded bg-gray-200 px-6 py-3 font-semibold text-gray-700">
+          {THOMASTAG_SIGNUP_STATUS_TEXT}
+        </span>
+      )}
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
         Seats are limited to 30 — first come, first served.
       </p>
