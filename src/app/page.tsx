@@ -1,5 +1,9 @@
 import HomeHeroImageClient from '@/components/HomeHeroImageClient';
-import { THOMASTAG_SIGNUP_OPENS_TEXT } from '@/lib/thomastag';
+import {
+  THOMASTAG_SIGNUP_IS_OPEN,
+  THOMASTAG_SIGNUP_OPENS_TEXT,
+  THOMASTAG_SIGNUP_STATUS_TEXT,
+} from '@/lib/thomastag';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -101,12 +105,18 @@ function ThomastagHero() {
           >
             Event details
           </Link>
-          <Link
-            href="https://signup.academicculture.org/events/thomastag-2025"
-            className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-          >
-            {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-          </Link>
+          {THOMASTAG_SIGNUP_IS_OPEN ? (
+            <Link
+              href="https://signup.academicculture.org/events/thomastag-2025"
+              className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
+            >
+              {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
+            </Link>
+          ) : (
+            <span className="rounded bg-gray-200 px-6 py-3 font-semibold text-gray-700">
+              {THOMASTAG_SIGNUP_STATUS_TEXT}
+            </span>
+          )}
         </div>
       </div>
     </section>
