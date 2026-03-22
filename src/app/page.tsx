@@ -1,9 +1,5 @@
 import HomeHeroImageClient from '@/components/HomeHeroImageClient';
-import {
-  THOMASTAG_SIGNUP_IS_OPEN,
-  THOMASTAG_SIGNUP_OPENS_TEXT,
-  THOMASTAG_SIGNUP_STATUS_TEXT,
-} from '@/lib/thomastag';
+import { upcomingEvents } from '@/lib/events';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -40,7 +36,7 @@ export default function Home() {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
       />
-      <ThomastagHero />
+      <UpcomingEventsHero />
       <main className="mx-auto max-w-4xl p-8">
         <Image
           src="/globe.svg"
@@ -82,41 +78,42 @@ export default function Home() {
   );
 }
 
+function UpcomingEventsHero() {
+  const nextEventTitles = upcomingEvents
+    .map((event) => event.title)
+    .join(' · ');
 
-
-function ThomastagHero() {
   return (
     <section className="front-hero-gradient py-20 text-center text-white">
       <div className="mx-auto max-w-4xl px-8">
         <HomeHeroImageClient
           src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max"
-          alt="City of Nuremberg"
+          alt="Academic Culture Enjoyers events across Europe"
           width={1800}
           height={500}
           crop={true}
           caption=""
         />
-        <h2 className="mb-4 text-5xl font-extrabold">Thomastag 2025</h2>
-        <p className="mb-6 text-xl">19–21 December 2025 · Nürnberg, Germany</p>
+        <h2 className="mb-4 text-5xl font-extrabold">
+          Spring 2026 events are here
+        </h2>
+        <p className="mb-3 text-xl">
+          ACE Wappusitsit · EuroSitsit Aachen · EuroSitsit Lausanne
+        </p>
+        <p className="mb-6 text-lg text-blue-50">
+          Save the dates for April and May 2026 and check the events page for
+          the latest details.
+        </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/events/thomastag-2025"
+            href="/events"
             className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
           >
-            Event details
+            Explore events
           </Link>
-          {THOMASTAG_SIGNUP_IS_OPEN ? (
-            <Link
-              href="https://signup.academicculture.org/events/thomastag-2025"
-              className="rounded bg-yellow-300 px-6 py-3 font-semibold text-gray-900 hover:bg-yellow-400"
-            >
-              {`Sign up here, opens ${THOMASTAG_SIGNUP_OPENS_TEXT}`}
-            </Link>
-          ) : (
-            <span className="rounded bg-gray-200 px-6 py-3 font-semibold text-gray-700">
-              {THOMASTAG_SIGNUP_STATUS_TEXT}
-            </span>
-          )}
+          <span className="rounded bg-blue-900/40 px-6 py-3 font-semibold text-blue-50">
+            {nextEventTitles}
+          </span>
         </div>
       </div>
     </section>
