@@ -15,7 +15,7 @@ export const upcomingEvents: EventCard[] = [
   {
     title: 'ACE Wappusitsit',
     subtitle: 'Celebrate Wappu together at Aalto University',
-    dateLabel: 'Monday, April 28, 2026 · 18:00',
+    dateLabel: 'Tuesday, April 28, 2026 · 18:00',
     location: 'Espoo, Finland',
     description:
       'Celebrate European student culture and friendship at ACE Wappusitsit on the Aalto University campus. International guests from across Europe will join for an evening of good food, drinks, songs, and excellent company, followed by an afterparty that continues late into the night.',
