@@ -252,8 +252,8 @@ export default function EuroSitsitPage() {
           <h2 className="mb-2 text-2xl font-semibold">Questions & community</h2>
           <p className="text-gray-700 dark:text-gray-300">
             For any questions about the events, contact the organizers at{' '}
-            <a href="mailto:ilmari.tarpla@outlook.com" className="underline">
-              ilmari.tarpla@outlook.com
+            <a href="mailto:ilmari.tarpila@outlook.com" className="underline">
+              ilmari.tarpila@outlook.com
             </a>{' '}
             or <span className="font-medium">@tapiiri</span> on Telegram.
           </p>
