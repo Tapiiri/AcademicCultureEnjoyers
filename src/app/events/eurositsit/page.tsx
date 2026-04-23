@@ -36,8 +36,10 @@ export default function EuroSitsitPage() {
     <div className="relative">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 z-0 w-full h-[80vh] bg-cover bg-center bg-no-repeat"
+        className="pointer-events-none absolute top-0 z-0 h-[80vh] bg-cover bg-center bg-no-repeat"
         style={{
+          left: '-70px',
+          right: '-70px',
           backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(${SITSIT_BG}?tr=w-1800,h-1100,c-at_max)`,
           maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
           WebkitMaskImage:

@@ -78,7 +78,7 @@ export default function Home() {
 
 function UpcomingEventsHero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative flex items-center justify-center text-center text-white overflow-hidden" style={{ minHeight: 'calc(70vh + 12px)', marginTop: '-12px' }}>
       {/* Full-bleed background image */}
       <Image
         src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1800,c-at_max"

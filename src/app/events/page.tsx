@@ -108,8 +108,10 @@ export default function EventsPage() {
     <div className="relative">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 z-0 w-full h-[60vh] bg-cover bg-center bg-no-repeat"
+        className="pointer-events-none absolute left-0 z-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
+          top: '-12px',
+          height: 'calc(60vh + 12px)',
           backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(${SITSIT_BG}?tr=w-1800,h-900,c-at_max)`,
           maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
           WebkitMaskImage:
