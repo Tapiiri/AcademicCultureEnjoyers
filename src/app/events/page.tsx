@@ -70,33 +70,43 @@ function EventCard({
   );
 }
 
+const SITSIT_BG =
+  'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Saha3.jpg';
+
 export default function EventsPage() {
   return (
-    <main className="mx-auto max-w-5xl p-8">
-      <section className="mb-12">
+    <div className="relative">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-0 z-0 w-full h-[60vh] bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(${SITSIT_BG}?tr=w-1800,h-900,c-at_max)`,
+          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, black 60%, transparent 100%)',
+        }}
+      />
+    <main className="relative z-10 mx-auto max-w-3xl p-0 bg-white/90 dark:bg-[#181c24] rounded-lg shadow-md">
+      <section className="px-4 pt-10 pb-8 md:px-8 md:pt-16 text-center">
         <p className="text-sm font-semibold tracking-wide text-blue-700 uppercase dark:text-blue-400">
           Academic Culture Enjoyers
         </p>
         <h1 className="mt-2 mb-4 text-4xl font-bold">Events</h1>
-        <p className="max-w-3xl text-lg text-gray-700 dark:text-gray-300">
+        <p className="text-lg text-gray-700 dark:text-gray-300">
           Join ACE events across Europe, from spring sitsit gatherings to major
           tradition weekends. Here you can find our current upcoming events as
           well as selected past events.
         </p>
       </section>
 
-      <section aria-labelledby="upcoming-events" className="mb-14">
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div>
-            <h2 id="upcoming-events" className="text-3xl font-semibold">
-              Upcoming events
-            </h2>
-            <p className="mt-2 text-gray-700 dark:text-gray-300">
-              Save the dates for spring 2026 and keep an eye out for signup
-              details.
-            </p>
-          </div>
-        </div>
+      <section aria-labelledby="upcoming-events" className="mb-10 px-4 md:px-8">
+        <h2 id="upcoming-events" className="mb-2 text-3xl font-semibold">
+          Upcoming events
+        </h2>
+        <p className="mb-6 text-gray-700 dark:text-gray-300">
+          Save the dates for spring 2026 and keep an eye out for signup
+          details.
+        </p>
         <div className="grid gap-6">
           {upcomingEvents.map((event) => (
             <EventCard key={`${event.title}-${event.dateLabel}`} {...event} />
@@ -104,15 +114,13 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="past-events">
-        <div className="mb-6">
-          <h2 id="past-events" className="text-3xl font-semibold">
-            Past events
-          </h2>
-          <p className="mt-2 text-gray-700 dark:text-gray-300">
-            Looking for previous ACE gatherings? Browse our archive here.
-          </p>
-        </div>
+      <section aria-labelledby="past-events" className="mb-10 px-4 md:px-8">
+        <h2 id="past-events" className="mb-2 text-3xl font-semibold">
+          Past events
+        </h2>
+        <p className="mb-6 text-gray-700 dark:text-gray-300">
+          Looking for previous ACE gatherings? Browse our archive here.
+        </p>
         <div className="grid gap-6">
           {pastEvents.map((event) => (
             <EventCard key={`${event.title}-${event.dateLabel}`} {...event} />
@@ -120,5 +128,6 @@ export default function EventsPage() {
         </div>
       </section>
     </main>
+    </div>
   );
 }
