@@ -14,6 +14,22 @@ export const metadata: Metadata = {
     'kommers',
     'sitsit',
   ],
+  openGraph: {
+    title: 'Academic Culture Enjoyers',
+    description: 'A community exploring student traditions and academic culture across Europe. Join us for sitsit, kommers, and more.',
+    images: [
+      {
+        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max',
+        width: 1200,
+        height: 630,
+        alt: 'Academic Culture Enjoyers sitsit table party',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max'],
+  },
 };
 
 const organizationLd = {

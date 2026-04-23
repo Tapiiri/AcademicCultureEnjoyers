@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     siteName: 'Academic Culture Enjoyers',
     images: [
       {
-        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1200,h-630,c-at_max',
+        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max',
         width: 1200,
         height: 630,
-        alt: 'City of Nürnberg',
+        alt: 'Academic Culture Enjoyers sitsit table party',
       },
     ],
     type: 'website',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'Academic Culture Enjoyers',
     description,
     images: [
-      'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1200,h-630,c-at_max',
+      'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max',
     ],
   },
   alternates: {

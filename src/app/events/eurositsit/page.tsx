@@ -22,6 +22,20 @@ export const metadata: Metadata = {
       'ACE brings the Finnish academic table party tradition to Central Europe — two spring sitsit events in Aachen (May 9) and Lausanne (May 23), 2026.',
     url: 'https://academiccultureenjoyers.org/events/eurositsit',
     siteName: 'Academic Culture Enjoyers',
+    images: [
+      {
+        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max',
+        width: 1200,
+        height: 630,
+        alt: 'Sitsit table party — EuroSitsit Spring 2026',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EuroSitsit Spring 2026 – Aachen & Lausanne',
+    description: 'Finnish sitsit comes to Central Europe. Two evenings of food, drink, and song — May 9 in Aachen, May 23 in Lausanne.',
+    images: ['https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1200,h-630,c-at_max'],
   },
 };
 
