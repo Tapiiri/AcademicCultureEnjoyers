@@ -274,7 +274,7 @@ export default function EuroSitsitPage() {
         </section>
 
         {/* Bottom CTAs */}
-        <section className="mb-10 px-4 md:px-8 text-center">
+        <section className="mb-10 px-4 md:px-8 pb-1 text-center">
           <h2 className="mb-4 text-2xl font-semibold">See you at the sitsit!</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <EventCta
@@ -294,7 +294,7 @@ export default function EuroSitsitPage() {
               open
             />
           </div>
-          <p className="mt-6 text-xs text-gray-600 dark:text-gray-400">
+          <p className="mt-6 mb-4 text-xs text-gray-600 dark:text-gray-400">
             We only use your info for organizing events, share it only when necessary,
             and delete it after.{' '}
             <Link href="/privacy" className="underline">
