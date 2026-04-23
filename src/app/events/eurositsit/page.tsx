@@ -122,7 +122,19 @@ export default function EuroSitsitPage() {
         <hr className="mx-4 md:mx-8 border-gray-200 dark:border-gray-700 my-8" />
 
         {/* Aachen */}
-        <section id="aachen" className="mb-8 px-4 md:px-8">
+        <section id="aachen" className="relative overflow-hidden mb-8 px-4 md:px-8">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-1/2"
+            style={{
+              backgroundImage: `url(https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sunset_in_Aachen.jpg?tr=w-600,h-400,c-at_max)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.18,
+              maskImage: 'linear-gradient(to right, transparent 0%, black 60%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 60%)',
+            }}
+          />
           <p className="text-sm font-semibold tracking-wide text-blue-700 uppercase dark:text-blue-400">
             Saturday, May 9, 2026 · 18:00–23:00
           </p>
@@ -172,7 +184,19 @@ export default function EuroSitsitPage() {
         <hr className="mx-4 md:mx-8 border-gray-200 dark:border-gray-700 my-8" />
 
         {/* Lausanne */}
-        <section id="lausanne" className="mb-8 px-4 md:px-8">
+        <section id="lausanne" className="relative overflow-hidden mb-8 px-4 md:px-8">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-1/2"
+            style={{
+              backgroundImage: `url(https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-600,h-400,c-at_max)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.18,
+              maskImage: 'linear-gradient(to right, transparent 0%, black 60%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 60%)',
+            }}
+          />
           <p className="text-sm font-semibold tracking-wide text-blue-700 uppercase dark:text-blue-400">
             Saturday, May 23, 2026 · 18:00–23:30
           </p>

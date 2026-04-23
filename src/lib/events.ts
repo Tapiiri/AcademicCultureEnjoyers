@@ -10,6 +10,7 @@ export type EventCard = {
   ctaHref?: string;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
+  cardImage?: string;
   status?: string;
 };
 
@@ -32,6 +33,7 @@ export const upcomingEvents: EventCard[] = [
     ctaHref: 'https://signup.academicculture.org/events/eurositsitaachen',
     secondaryCtaLabel: 'Event details',
     secondaryCtaHref: '/events/eurositsit',
+    cardImage: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sunset_in_Aachen.jpg',
   },
   {
     slug: '/events/eurositsit',
@@ -52,6 +54,7 @@ export const upcomingEvents: EventCard[] = [
     ctaHref: 'https://signup.academicculture.org/events/eurositsitlausanne',
     secondaryCtaLabel: 'Event details',
     secondaryCtaHref: '/events/eurositsit',
+    cardImage: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg',
   },
   {
     title: 'ACE Wappusitsit',
@@ -65,6 +68,7 @@ export const upcomingEvents: EventCard[] = [
       'Dress code: formal with academic accessories',
       'Price: €30, or €25 alcohol-free',
     ],
+    cardImage: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Saha.jpg',
     status: 'Signup is closed.',
   },
 ];
@@ -85,5 +89,6 @@ export const pastEvents: EventCard[] = [
     ],
     ctaLabel: 'View event page',
     ctaHref: '/events/thomastag-2025',
+    cardImage: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg',
   },
 ];
