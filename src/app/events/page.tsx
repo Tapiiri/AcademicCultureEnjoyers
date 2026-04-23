@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: 'Events',
   description:
     'Explore upcoming and past Academic Culture Enjoyers events across Europe.',
+  openGraph: {
+    title: 'ACE Events',
+    description: 'Upcoming and past Academic Culture Enjoyers events across Europe — sitsit, kommers, tradition weekends, and more.',
+    images: [
+      {
+        url: 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Saha3.jpg?tr=w-1200,h-630,c-at_max',
+        width: 1200,
+        height: 630,
+        alt: 'Academic Culture Enjoyers event',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ACE Events',
+    description: 'Upcoming and past Academic Culture Enjoyers events across Europe — sitsit, kommers, tradition weekends, and more.',
+    images: ['https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Saha3.jpg?tr=w-1200,h-630,c-at_max'],
+  },
 };
 
 const IK = 'https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers';
