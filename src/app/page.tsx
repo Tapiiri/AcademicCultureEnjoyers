@@ -1,5 +1,4 @@
 import HomeHeroImageClient from '@/components/HomeHeroImageClient';
-import { upcomingEvents } from '@/lib/events';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -79,41 +78,46 @@ export default function Home() {
 }
 
 function UpcomingEventsHero() {
-  const nextEventTitles = upcomingEvents
-    .map((event) => event.title)
-    .join(' · ');
-
   return (
     <section className="front-hero-gradient py-20 text-center text-white">
       <div className="mx-auto max-w-4xl px-8">
         <HomeHeroImageClient
-          src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/nuremberg.jpg?tr=w-1800,h-500,c-at_max"
-          alt="Academic Culture Enjoyers events across Europe"
+          src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1800,h-500,c-at_max"
+          alt="Sitsit table party"
           width={1800}
           height={500}
           crop={true}
           caption=""
         />
         <h2 className="mb-4 text-5xl font-extrabold">
-          Spring 2026 events are here
+          Sitsit is coming to Central Europe
         </h2>
         <p className="mb-3 text-xl">
-          ACE Wappusitsit · EuroSitsit Aachen · EuroSitsit Lausanne
+          Two EuroSitsit events this spring — Aachen and Lausanne
         </p>
         <p className="mb-6 text-lg text-blue-50">
-          Save the dates for April and May 2026 and check the events page for
-          the latest details.
+          Join ACE for evenings of food, drink, and song in Germany and
+          Switzerland. Signups are open now.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/events"
+            href="https://signup.academicculture.org/events/eurositsitaachen"
             className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
           >
-            Explore events
+            Sign up — Aachen, May 9
           </Link>
-          <span className="rounded bg-blue-900/40 px-6 py-3 font-semibold text-blue-50">
-            {nextEventTitles}
-          </span>
+          <Link
+            href="https://signup.academicculture.org/events/eurositsitlausanne"
+            className="rounded bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-gray-100"
+          >
+            Sign up — Lausanne, May 23
+          </Link>
+          <Link
+            href="/events/eurositsit"
+            className="rounded bg-blue-900/40 px-6 py-3 font-semibold text-blue-50 hover:bg-blue-900/60"
+          >
+            Learn more
+          </Link>
         </div>
       </div>
     </section>

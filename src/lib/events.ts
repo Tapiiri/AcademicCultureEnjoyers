@@ -8,25 +8,12 @@ export type EventCard = {
   highlights: string[];
   ctaLabel?: string;
   ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   status?: string;
 };
 
 export const upcomingEvents: EventCard[] = [
-  {
-    title: 'ACE Wappusitsit',
-    subtitle: 'Celebrate Wappu together at Aalto University',
-    dateLabel: 'Tuesday, April 28, 2026 · 18:00',
-    location: 'Espoo, Finland',
-    description:
-      'Celebrate European student culture and friendship at ACE Wappusitsit on the Aalto University campus. International guests from across Europe will join for an evening of good food, drinks, songs, and excellent company, followed by an afterparty that continues late into the night.',
-    highlights: [
-      'Sitsit at Otakaari 20 upstairs, afterparty at Otakaari 20 downstairs',
-      'Dress code: formal with academic accessories',
-      'Price: €30, or €25 alcohol-free',
-      'You can also join the organizing crew through the same signup form',
-    ],
-    status: 'Signup and event details coming soon.',
-  },
   {
     slug: '/events/eurositsit',
     title: 'ACE EuroSitsit Aachen',
@@ -41,8 +28,10 @@ export const upcomingEvents: EventCard[] = [
       'Dresscode: Cocktail / Elegant (not strict — no t-shirts)',
       'Signup open until April 30, 2026',
     ],
-    ctaLabel: 'View event & sign up',
-    ctaHref: '/events/eurositsit#aachen',
+    ctaLabel: 'Sign up',
+    ctaHref: 'https://signup.academicculture.org/events/eurositsitaachen',
+    secondaryCtaLabel: 'Event details',
+    secondaryCtaHref: '/events/eurositsit',
   },
   {
     slug: '/events/eurositsit',
@@ -59,8 +48,24 @@ export const upcomingEvents: EventCard[] = [
       'Signup open until May 14, 2026',
       'Bring a drink from your country or region to share — optional!',
     ],
-    ctaLabel: 'View event & sign up',
-    ctaHref: '/events/eurositsit#lausanne',
+    ctaLabel: 'Sign up',
+    ctaHref: 'https://signup.academicculture.org/events/eurositsitlausanne',
+    secondaryCtaLabel: 'Event details',
+    secondaryCtaHref: '/events/eurositsit',
+  },
+  {
+    title: 'ACE Wappusitsit',
+    subtitle: 'Celebrate Wappu together at Aalto University',
+    dateLabel: 'Tuesday, April 28, 2026 · 18:00',
+    location: 'Espoo, Finland',
+    description:
+      'Celebrate European student culture and friendship at ACE Wappusitsit on the Aalto University campus. International guests from across Europe will join for an evening of good food, drinks, songs, and excellent company, followed by an afterparty that continues late into the night.',
+    highlights: [
+      'Sitsit at Otakaari 20 upstairs, afterparty at Otakaari 20 downstairs',
+      'Dress code: formal with academic accessories',
+      'Price: €30, or €25 alcohol-free',
+    ],
+    status: 'Signup is closed.',
   },
 ];
 

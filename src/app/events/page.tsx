@@ -17,6 +17,8 @@ function EventCard({
   highlights,
   ctaLabel,
   ctaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
   status,
 }: {
   title: string;
@@ -27,6 +29,8 @@ function EventCard({
   highlights: string[];
   ctaLabel?: string;
   ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   status?: string;
 }) {
   return (
@@ -51,7 +55,7 @@ function EventCard({
           <li key={highlight}>{highlight}</li>
         ))}
       </ul>
-      {(ctaHref || status) && (
+      {(ctaHref || secondaryCtaHref || status) && (
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {ctaHref && ctaLabel ? (
             <Link
@@ -59,6 +63,14 @@ function EventCard({
               className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
             >
               {ctaLabel}
+            </Link>
+          ) : null}
+          {secondaryCtaHref && secondaryCtaLabel ? (
+            <Link
+              href={secondaryCtaHref}
+              className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+            >
+              {secondaryCtaLabel}
             </Link>
           ) : null}
           {status ? (
