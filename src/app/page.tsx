@@ -1,4 +1,3 @@
-import HomeHeroImageClient from '@/components/HomeHeroImageClient';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,11 +37,11 @@ export default function Home() {
       <UpcomingEventsHero />
       <main className="mx-auto max-w-4xl p-8">
         <Image
-          src="/globe.svg"
-          alt="Academic Culture Enjoyers globe logo"
-          width={96}
-          height={96}
-          className="mb-4 dark:invert"
+          src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/ACE-zirkel_weighted-01.svg"
+          alt="Academic Culture Enjoyers zirkel"
+          width={144}
+          height={144}
+          className="mb-4"
           priority
         />
         <h1 className="mb-6 text-4xl font-bold">Academic Culture Enjoyers</h1>
@@ -79,23 +78,30 @@ export default function Home() {
 
 function UpcomingEventsHero() {
   return (
-    <section className="front-hero-gradient py-20 text-center text-white">
-      <div className="mx-auto max-w-4xl px-8">
-        <HomeHeroImageClient
-          src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1800,h-500,c-at_max"
-          alt="Sitsit table party"
-          width={1800}
-          height={500}
-          crop={true}
-          caption=""
-        />
-        <h2 className="mb-4 text-5xl font-extrabold">
-          Sitsit is coming to Central Europe
+    <section className="relative min-h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+      {/* Full-bleed background image */}
+      <Image
+        src="https://ik.imagekit.io/tapiiri/ace/AcademicCultureEnjoyers/Sitsit.jpg?tr=w-1800,c-at_max"
+        alt="Sitsit table party"
+        fill
+        className="object-cover"
+        priority
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-3xl px-8 py-24">
+        <p className="mb-4 text-sm font-semibold tracking-widest uppercase text-blue-200">
+          Academic Culture Enjoyers · Spring 2026
+        </p>
+        <h2 className="mb-6 text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
+          Sitsit is coming to Central Europe!
         </h2>
-        <p className="mb-3 text-xl">
+        <p className="mb-3 text-xl md:text-2xl text-gray-100">
           Two EuroSitsit events this spring — Aachen and Lausanne
         </p>
-        <p className="mb-6 text-lg text-blue-50">
+        <p className="mb-10 text-lg text-blue-100">
           Join ACE for evenings of food, drink, and song in Germany and
           Switzerland. Signups are open now.
         </p>
@@ -114,7 +120,7 @@ function UpcomingEventsHero() {
           </Link>
           <Link
             href="/events/eurositsit"
-            className="rounded bg-blue-900/40 px-6 py-3 font-semibold text-blue-50 hover:bg-blue-900/60"
+            className="rounded bg-white/20 backdrop-blur-sm px-6 py-3 font-semibold text-white hover:bg-white/30"
           >
             Learn more
           </Link>
