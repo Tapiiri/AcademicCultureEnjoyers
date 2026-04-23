@@ -111,13 +111,11 @@ export default function EventsPage() {
         className="pointer-events-none absolute left-0 z-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           top: '-12px',
-          height: 'calc(60vh + 12px)',
-          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.0) 100%), url(${SITSIT_BG}?tr=w-1800,h-900,c-at_max)`,
-          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-          WebkitMaskImage:
-            'linear-gradient(to bottom, black 60%, transparent 100%)',
+          height: 'calc(80vh + 12px)',
+          backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 30%, rgba(255,255,255,0.0) 50%, rgba(255,255,255,1.0) 95%), url(${SITSIT_BG}?tr=w-1800,h-900,c-at_max)`,
         }}
       />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 z-[1] h-1 bg-white dark:bg-[#181c24]" style={{ top: 'calc(80vh - 1px)' }} />
     <div className="relative z-10 mx-auto max-w-3xl">
       {/* White intro box */}
       <div className="bg-white/90 dark:bg-[#181c24] rounded-lg shadow-md">
