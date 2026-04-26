@@ -118,7 +118,7 @@ export default function EuroSitsitPage() {
         {/* Who is ACE */}
         <section className="mb-8 px-4 md:px-8">
           <h2 className="mb-2 text-2xl font-semibold">
-            Who is Academic Culture Enjoyers?
+            Who are the Academic Culture Enjoyers?
           </h2>
           <p className="text-gray-700 dark:text-gray-300">
             Academic Culture Enjoyers is a loose organization of people within Europe
