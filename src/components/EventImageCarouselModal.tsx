@@ -45,10 +45,10 @@ export default function EventImageCarouselModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={onClose}>
       <div className="relative max-w-3xl w-full" onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className="absolute top-2 right-2 text-white text-2xl bg-black/60 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/80 transition">&times;</button>
-        {/* Left arrow, outside image */}
+        {/* Left arrow */}
         <button
           onClick={prev}
-          className="absolute -left-16 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform duration-150 hover:scale-105 active:scale-95"
+          className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform duration-150 hover:scale-105 active:scale-95"
           aria-label="Previous image"
         >
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,10 +56,10 @@ export default function EventImageCarouselModal({
             <polygon points="18,7 10,14 18,21" fill="white" />
           </svg>
         </button>
-        {/* Right arrow, outside image */}
+        {/* Right arrow */}
         <button
           onClick={next}
-          className="absolute -right-16 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform duration-150 hover:scale-105 active:scale-95"
+          className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform duration-150 hover:scale-105 active:scale-95"
           aria-label="Next image"
         >
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
